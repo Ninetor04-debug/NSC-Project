@@ -46,8 +46,12 @@ class Score(Base):
     id = Column(Integer, primary_key=True, index=True)
     user_id = Column(Integer, ForeignKey("users.id"))
     lesson_id = Column(Integer, ForeignKey("lessons.id"))
-    score = Column(Integer, default=0)
+    quiz_score = Column(Integer, default=0)        # คะแนนปรนัย
+    code_score = Column(Integer, default=0)         # คะแนนเขียนโค้ด
+    fillblock_score = Column(Integer, default=0)    # คะแนนมินิเกม
+    total_score = Column(Integer, default=0)        # คะแนนรวม
     created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     user = relationship("User", back_populates="scores")
     lesson = relationship("Lesson", back_populates="scores")

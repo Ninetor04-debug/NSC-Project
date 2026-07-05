@@ -4,6 +4,7 @@ from database import get_db
 from models import Quiz, Score
 from pydantic import BaseModel
 from typing import List
+import httpx
 
 router = APIRouter(prefix="/quiz", tags=["quiz"])
 
@@ -50,20 +51,35 @@ def submit_quiz(body: SubmitQuizSchema, db: Session = Depends(get_db)):
             if quiz.answer.lower() == ans.answer.lower():
                 correct += 1
 
-    score = int((correct / total) * 100) if total > 0 else 0
+    score_value = int((correct / total) * 100) if total > 0 else 0
 
-    # บันทึกคะแนนลง Database
-    new_score = Score(
-        user_id=body.user_id,
-        lesson_id=body.lesson_id,
-        score=score
-    )
-    db.add(new_score)
-    db.commit()
+ # เรียก score.py ให้บันทึกคะแนนอัตโนมัติ
+    from models import Score
+    score_record = db.query(Score).filter(
+        Score.user_id == body.user_id,
+        Score.lesson_id == body.lesson_id
+    ).first()
+
+    if not score_record:
+        score_record = Score(
+            user_id=body.user_id,
+            lesson_id=body.lesson_id,
+            quiz_score=0,
+            code_score=0,
+            fillblock_score=0,
+            total_score=0
+        )
+        db.add(score_record)
+
+        score_record.quiz_score = score_value
+        score_record.total_score = (
+        score_record.quiz_score + score_record.code_score + score_record.fillblock_score
+        )
+        db.commit()
 
     return {
         "total": total,
         "correct": correct,
-        "score": score,
-        "message": f"ได้คะแนน {correct}/{total} ({score} คะแนน)"
+        "score": score_value,
+        "message": f"ได้คะแนน {correct}/{total} ({score_value} คะแนน)"
     }
