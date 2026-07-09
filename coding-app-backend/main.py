@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from database import engine
 import models
-from routers import auth, lessons, code, quiz, score, hint
+from routers import auth, lessons, code, quiz, score, hint, fillblock
 
 models.Base.metadata.create_all(bind=engine)
 
@@ -22,6 +22,7 @@ app.include_router(code.router)
 app.include_router(quiz.router)
 app.include_router(score.router)
 app.include_router(hint.router)
+app.include_router(fillblock.router)
 
 @app.get("/")
 def root():
