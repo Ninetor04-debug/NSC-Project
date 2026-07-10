@@ -1,18 +1,22 @@
+import os
+from dotenv import load_dotenv
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 import google.genai as genai
 
+load_dotenv()
+
 router = APIRouter(prefix="/hint", tags=["hint"])
 
-# ตั้งค่า Gemini API Key
-GEMINI_API_KEY = ""
+# ตั้งค่า Gemini API Key จาก .env
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 client = genai.Client(api_key=GEMINI_API_KEY)
 
 
 class HintSchema(BaseModel):
-    question: str       # โจทย์ที่นักเรียนกำลังทำ
-    code: str            # โค้ดของนักเรียน
-    error: str = ""       # ข้อความ Error (ถ้ามี)
+    question: str
+    code: str
+    error: str = ""
 
 @router.post("/")
 def get_hint(body: HintSchema):
@@ -42,10 +46,9 @@ def get_hint(body: HintSchema):
 
     try:
         response = client.models.generate_content(
-        model="gemini-3.5-flash",
-        contents=prompt
+            model="gemini-3.5-flash",
+            contents=prompt
         )
-
         return {"hint": response.text}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"เกิดข้อผิดพลาดในการเรียก AI: {str(e)}")
