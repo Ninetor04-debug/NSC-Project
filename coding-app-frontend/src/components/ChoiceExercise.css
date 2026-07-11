@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Kanit", sans-serif;
+}
+.qc-screen {
+  min-height: 100vh;
+  background: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 64px 20px;
+  font-family: "Segoe UI", "Noto Sans Thai", sans-serif;
+  box-sizing: border-box;
+}
+
+.qc-card {
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+}
+
+.qc-question {
+  color: #1a1a1a;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 20px;
+}
+
+.qc-options {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.qc-option {
+  width: 100%;
+  min-height: 52px;
+  background: #ffffff;
+  border: 1.5px solid #e2e2e2;
+  border-radius: 14px;
+  padding: 0 20px;
+  font-family: inherit;
+  font-size: 15px;
+  color: #1a1a1a;
+  text-align: left;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.qc-option:hover {
+  border-color: #b9d5f0;
+}
+
+.qc-option--selected {
+  background: #bfdcf7;
+  border-color: #4a90d9;
+  font-weight: 600;
+}
+
+.qc-next-btn {
+  margin-top: 40px;
+  align-self: center;
+  width: 180px;
+  height: 48px;
+  background: #2f5fa8;
+  border: none;
+  border-radius: 24px;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 3px 0 #1f3f75;
+}
+
+.qc-next-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #1f3f75;
+}
+
+.qc-next-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

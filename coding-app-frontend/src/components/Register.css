@@ -1,0 +1,180 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Kanit", sans-serif;
+}
+
+input, select, button {
+  font-family: "Kanit", sans-serif;
+}
+
+.register-page {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.left-panel {
+  flex: 1;
+  background: #002b70;
+  background: linear-gradient(
+    315deg,
+    rgba(0, 43, 112, 1) 0%,
+    rgba(43, 90, 165, 1) 52%,
+    rgba(230, 230, 230, 1) 100
+  );
+}
+
+.right-panel {
+  flex: 1;
+  display: flex;
+  padding: 40px;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
+}
+
+.register-container {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.register-container h1 {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  text-align: left;
+  color: #333;
+}
+
+.register-container input,
+.register-container select {
+  width: 100%;
+  height: 56px;
+  border: 1px solid #e0e0e0;
+  border-radius: 700px;
+  padding: 0 24px;
+  font-size: 15px;
+  outline: none;
+  color: #333;
+  background-color: #fff;
+  transition: border-color 0.2s ease;
+}
+
+.register-container input:focus,
+.register-container select:focus {
+  border-color: #2b5aa5;
+}
+
+.register-container input::placeholder {
+  font-family: "Kanit", sans-serif;
+  color: #b9b9b9;
+}
+
+
+/* Custom Dropdown Arrow Reset */
+.register-container select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* Input Icons (SVG Backgrounds) */
+.register-container .name-input {
+  background-image: url("/user-solid-full.svg");
+  background-repeat: no-repeat;
+  background-position: 20px center;
+  background-size: 18px;
+  padding-left: 52px;
+}
+
+.register-container .grade-select {
+  background-image: url("/school-solid-full.svg");
+  background-repeat: no-repeat;
+  background-position: 20px center;
+  background-size: 18px;
+  padding-left: 52px;
+}
+
+.register-container .password-input {
+  background-image: url("/lock-solid-full.svg");
+  background-repeat: no-repeat;
+  background-position: 20px center;
+  background-size: 18px;
+  padding-left: 52px;
+}
+
+/* Placeholder color for Select unselected state */
+.register-container select:invalid,
+.register-container select option[value=""] {
+  color: #b9b9b9;
+}
+
+/* ==========================================================================
+   5. Buttons (Toggle Visibility & Submit)
+   ========================================================================== */
+/* ปุ่มแสดง/ซ่อนรหัสผ่าน */
+.register-container button[type="button"] {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  color: #2b5aa5;
+  font-size: 13px;
+  cursor: pointer;
+  margin-top: -12px;
+}
+
+/* ปุ่มสมัครบัญชีหลัก */
+.register-container button[type="submit"] {
+  height: 56px;
+  border: none;
+  border-radius: 700px;
+  background-color: #2b5aa5;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: background-color 0.2s ease;
+}
+
+.register-container button[type="submit"]:hover {
+  background-color: #234b8a;
+}
+
+
+.login-link-text {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+  width: 100%;
+}
+
+.login-link {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline;     
+  transition: color 0.2s ease;
+}
+
+.login-link:hover {
+  text-decoration: underline; 
+}
+
+
+@media (max-width: 768px) {
+  .left-panel {
+    display: none;
+  }
+  .right-panel {
+    padding: 24px;
+  }
+}

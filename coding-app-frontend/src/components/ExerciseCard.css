@@ -1,0 +1,100 @@
+.exercise-page {
+  background: #2f5aa8;
+  min-height: 100vh;
+  padding: 32px 24px 64px;
+}
+
+.exercise-page__label {
+  text-align: center;
+  color: #dfe7f5;
+  font-size: 12px;
+  margin-bottom: 16px;
+}
+
+.exercise-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media (max-width: 720px) {
+  .exercise-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  border: 2px solid transparent;
+  transition: border-color 0.15s ease, opacity 0.15s ease;
+}
+
+/* ตัวอย่าง highlight card ที่กำลังถูกเลือก/โฟกัส (เหมือนใน mockup) */
+.card:focus-within {
+  border-color: #4fa3ff;
+}
+
+/* การ์ดที่ทำเสร็จแล้ว ให้ดูจางลงเล็กน้อยเพื่อสื่อว่า "ปิดใช้งานแล้ว" */
+.card--done {
+  opacity: 0.85;
+}
+
+.card__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.card__icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.card__title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+}
+
+.card__lesson {
+  font-size: 11px;
+  color: #6b7280;
+  margin: 2px 0 0;
+}
+
+.card__button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+  cursor: pointer;
+  background: #2e8de0;
+  transition: background 0.15s ease;
+}
+
+.card__button:hover:not(:disabled) {
+  background: #2678c4;
+}
+
+/* สถานะทำเสร็จแล้ว: ปุ่มเป็นสีเทา และกดไม่ได้ */
+.card__button--done,
+.card__button:disabled {
+  background: #b0b6bf;
+  color: #f3f4f6;
+  cursor: not-allowed;
+}

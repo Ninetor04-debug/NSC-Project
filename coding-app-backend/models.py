@@ -14,18 +14,6 @@ class User(Base):
 
     scores = relationship("Score", back_populates="user")
 
-class Lesson(Base):
-    __tablename__ = "lessons"
-
-    id = Column(Integer, primary_key=True, index=True)
-    title = Column(String(255), nullable=False)
-    description = Column(Text)
-    youtube_url = Column(String(255))
-    order = Column(Integer)
-
-    quizzes = relationship("Quiz", back_populates="lesson")
-    scores = relationship("Score", back_populates="lesson")
-
 class Quiz(Base):
     __tablename__ = "quizzes"
 
@@ -66,3 +54,17 @@ class FillInBlock(Base):
     choices = Column(Text, nullable=False)
     answer = Column(Text, nullable=False)
     order = Column(Integer)
+
+class Lesson(Base):
+    __tablename__ = "lessons"
+
+    id = Column(Integer, primary_key=True, index=True)
+    title = Column(String(255), nullable=False)
+    description = Column(Text)
+    youtube_url = Column(String(255))
+    pdf_url = Column(String(255))
+    duration = Column(Integer, default=20)
+    order = Column(Integer)
+
+    quizzes = relationship("Quiz", back_populates="lesson")
+    scores = relationship("Score", back_populates="lesson")

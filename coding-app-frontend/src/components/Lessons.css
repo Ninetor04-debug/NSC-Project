@@ -1,0 +1,248 @@
+/* =========================
+   PAGE
+========================= */
+
+.lessons-page {
+  min-height: 100vh;
+  padding: 30px 0 60px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.lesson-header {
+  width: 90%;
+  max-width: 650px;
+  margin: auto;
+  margin-bottom: 40px;
+
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  background: white;
+  padding: 22px;
+
+  border-radius: 20px;
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.lesson-header-icon {
+  width: 65px;
+}
+
+.lesson-header h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #222;
+}
+
+.lesson-header p {
+  margin-top: 6px;
+  color: #666;
+}
+
+/* =========================
+   PATH
+========================= */
+
+.lesson-path {
+  width: 320px;
+  height: 100%;
+  margin: 30px auto 0;
+
+  position: relative;
+}
+.lesson-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/* แต่ละบท */
+
+.lesson-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* =========================
+   CONNECTOR
+========================= */
+
+.lesson-line {
+  width: 8px;
+  height: 80px;
+
+  background: #d9d9d9;
+
+  border-radius: 20px;
+}
+
+/* เรียนแล้ว */
+
+.lesson-line-active {
+  background: #4c8dff;
+}
+
+/* =========================
+   LESSON NODE
+========================= */
+
+.lesson-node {
+  width: 75px;
+  height: 75px;
+
+  border-radius: 50%;
+
+  border: none;
+
+  font-size: 22px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+
+  margin-top: -5px;
+}
+
+/* ทำเสร็จ */
+
+.lesson-node.done {
+  background: #4c8dff;
+  color: white;
+
+  box-shadow: 0 8px 18px rgba(76, 141, 255, 0.35);
+}
+
+/* กำลังเรียน */
+
+.lesson-node.current {
+  background: #38bdf8;
+  color: white;
+
+  animation: pulse 1.2s infinite;
+
+  box-shadow: 0 8px 18px rgba(56, 189, 248, 0.45);
+}
+
+/* ล็อก */
+
+.lesson-node.locked {
+  background: #d9d9d9;
+  color: #888;
+
+  cursor: not-allowed;
+}
+
+/* Hover */
+
+.lesson-node:not(.locked):hover {
+  transform: scale(1.08);
+}
+
+/* =========================
+   POPUP
+========================= */
+
+.lesson-modal-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.45);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 999;
+}
+
+.lesson-modal {
+  width: 350px;
+
+  background: white;
+
+  border-radius: 20px;
+
+  padding: 35px;
+
+  text-align: center;
+
+  animation: popup 0.3s;
+}
+
+.lesson-modal-icon {
+  width: 70px;
+  margin-bottom: 20px;
+}
+
+.lesson-modal h2 {
+  margin-bottom: 10px;
+}
+
+.lesson-modal p {
+  color: #777;
+
+  margin-bottom: 25px;
+}
+
+.lesson-start-btn {
+  width: 100%;
+
+  padding: 15px;
+
+  border: none;
+
+  border-radius: 15px;
+
+  background: #4c8dff;
+
+  color: white;
+
+  font-size: 18px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.lesson-start-btn:hover {
+  background: #2f73f6;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes popup {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.08);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}

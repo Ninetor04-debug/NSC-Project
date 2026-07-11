@@ -1,0 +1,255 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Kanit", sans-serif;
+}
+body {
+  background-color: #2C5EAD;
+}
+.navbar {
+  display: flex;
+  min-height: 100vh;
+  padding: 24px;
+  box-sizing: border-box;
+  font-family: "Prompt", "Kanit", system-ui, sans-serif;
+}
+
+.sidebar {
+  width: 220px;
+  background: #3867B2;
+  border-radius: 28px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 22px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.sidebar-logo-text {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.sidebar-mascot {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+.sidebar-nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.sidebar-menu-bottom {
+  margin-top: auto;
+}
+
+.nav-item a {
+  display: flex;
+  align-items: center;
+  padding: 10px 14px; 
+  border-radius: 12px;
+  margin: 0 -14px;
+  gap: 14px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 15px;
+  opacity: 0.95;
+  transition: all 0.2s ease;
+}
+
+.nav-item a:hover {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateX(2px);
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.nav-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.content {
+  flex: 1;
+  overflow: auto;
+}
+ 
+.dashboard-content {
+  height: 100%;
+  padding-top: 20px;
+  min-height: calc(100vh - 48px); 
+  padding: 60px 24px 40px 24px;
+  background: #2C5EAD;
+  box-sizing: border-box;
+}
+ 
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 20px;
+}
+ 
+.card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 40px 24px;
+  box-shadow: rgba(60, 64, 67, 0.15) 0px 2px 8px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+ 
+/* --- card หลัก: บทเรียนปัจจุบัน --- */
+ 
+.card-lesson-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+ 
+.lesson-icon {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+ 
+.lesson-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1c2b48;
+}
+ 
+.lesson-title-sm {
+  font-size: 15px;
+}
+ 
+.lesson-subtitle {
+  font-size: 13px;
+  color: #8892a6;
+  margin-top: 2px;
+}
+ 
+.progress-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+ 
+.progress-bar-track {
+  flex: 1;
+  height: 6px;
+  background: #e7ebf3;
+  border-radius: 999px;
+  overflow: hidden;
+}
+ 
+.progress-bar-fill {
+  height: 100%;
+  background: #2C5EAD;
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+ 
+.progress-label {
+  font-size: 12px;
+  color: #8892a6;
+  min-width: 30px;
+  text-align: right;
+}
+ 
+.btn-primary {
+  align-self: flex-start;
+  background: #2C5EAD;
+  color: #ffffff;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 22px;
+  font-size: 14px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+ 
+.btn-primary:hover:not(:disabled) {
+  background: #244c8c;
+  transform: translateY(-1px);
+}
+ 
+.btn-primary:disabled {
+  background: #b7c3dc;
+  cursor: not-allowed;
+}
+ 
+/* --- card เวลาเรียนรวม --- */
+ 
+.card-time {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 6px;
+}
+ 
+.time-icon {
+  font-size: 26px;
+  color: #2C5EAD;
+}
+ 
+.time-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1c2b48;
+}
+ 
+.time-label {
+  font-size: 13px;
+  color: #8892a6;
+}
+ 
+/* --- card ว่าง (สำหรับ feature ถัดไป) --- */
+ 
+.card-empty {
+  min-height: 140px;
+}
+ 
+.btn-reset {
+  margin-top: 20px;
+  background: transparent;
+  border: 1px dashed rgba(255, 255, 255, 0.5);
+  color: #ffffff;
+  border-radius: 999px;
+  padding: 6px 16px;
+  font-size: 12px;
+  font-family: inherit;
+  cursor: pointer;
+}
+ 
