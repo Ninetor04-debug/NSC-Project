@@ -20,6 +20,7 @@ export const lessons = [
       {
         id: 2,
         type: "choice",
+        
         question: "ประโยชน์ของภาษา Python คืออะไร",
         options: [
           "ใช้สำหรับการพัฒนาเว็บไซต์",
@@ -118,6 +119,7 @@ export const lessons = [
   {
     id: 2,
     title: "ตัวแปร",
+    pdf: "/pdf/variable.pdf",
     duration: 15,
     exercises: [
       {

@@ -93,7 +93,7 @@ function Dashboard() {
               ▶ เรียนจบแล้ว
             </button>
           ) : (
-            <Link to="/lessons">
+            <Link to={`/lesson/${currentLesson.id}`}>
               <button className="btn-primary">▶ เริ่มเรียน</button>
             </Link>
           )}
@@ -129,9 +129,7 @@ function Dashboard() {
               ▶ ทำครบแล้ว
             </button>
           ) : (
-            <Link
-               to={`/exercise/${currentLesson.id}`}
-            >
+            <Link to={`/exercise/${currentLesson.id}`}>
               <button className="btn-primary">▶ เริ่มทำ</button>
             </Link>
           )}
