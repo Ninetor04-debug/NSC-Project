@@ -1,3 +1,5 @@
+import token
+
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from database import get_db
@@ -68,8 +70,9 @@ def login(body: LoginSchema, db: Session = Depends(get_db)):
 
     token = create_token({"sub": str(user.id), "full_name": user.full_name})
     return {
-        "access_token": token,
-        "token_type": "bearer",
-        "full_name": user.full_name,
-        "grade": user.grade
+    "access_token": token,
+    "token_type": "bearer",
+    "user_id": user.id,
+    "full_name": user.full_name,
+    "grade": user.grade
     }

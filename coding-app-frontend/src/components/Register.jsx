@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Register.css";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import api from "../api";
 
 function Register() {
   const [form, setForm] = useState({
@@ -11,15 +11,25 @@ function Register() {
     confirmPassword: "",
   });
   const [showPassword, setShowPassword] = useState(false);
-  const navigate = useNavigate(); // ดึงใช้งาน useNavigate
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
-  function saveData(e) {
+  async function saveData(e) {
     e.preventDefault();
-    
-    // ตรงนี้ใส่ Logic สำหรับส่งข้อมูลไปหลังบ้านเพิ่มได้ในอนาคต
-    
-    // เมื่อสมัครเสร็จให้วิ่งไปที่หน้า Dashboard 
-    navigate("/dashboard");
+    setError("");
+
+    try {
+      await api.post("/auth/register", {
+        full_name: form.name,
+        grade: form.grade,
+        password: form.password,
+        confirm_password: form.confirmPassword,
+      });
+
+      navigate("/login");
+    } catch (err) {
+      setError(err.response?.data?.detail || "สมัครสมาชิกไม่สำเร็จ");
+    }
   }
 
   return (
@@ -30,6 +40,8 @@ function Register() {
         <div className="right-panel">
           <form className="register-container" onSubmit={saveData}>
             <h1>สมัครบัญชี</h1>
+
+            {error && <p style={{ color: "red" }}>{error}</p>}
 
             <input
               type="text"
@@ -74,7 +86,6 @@ function Register() {
 
             <button type="submit">สมัครบัญชี</button>
 
-            {/* แก้ไขกลุ่มโครงสร้างข้อความด้านล่างตรงนี้ */}
             <p className="login-link-text">
               มีบัญชีอยู่แล้ว?{" "}
               <Link to="/login" className="login-link">
@@ -82,8 +93,8 @@ function Register() {
               </Link>
             </p>
           </form>
-        </div> 
-      </div> 
+        </div>
+      </div>
     </>
   );
 }

@@ -1,19 +1,34 @@
 import { useState } from "react";
 import "./Login.css";
 import { useNavigate, Link } from "react-router-dom";
+import api from "../api";
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  function handleLogin(e) {
+  async function handleLogin(e) {
     e.preventDefault();
+    setError("");
 
-    // ตรงนี้ใส่ Logic ตรวจสอบ username/password เพิ่มได้ในอนาคต
+    try {
+      const res = await api.post("/auth/login", {
+        full_name: username,
+        password: password,
+      });
 
-    navigate("/dashboard");
+      localStorage.setItem("token", res.data.access_token);
+      localStorage.setItem("user_id", res.data.user_id);
+      localStorage.setItem("full_name", res.data.full_name);
+      localStorage.setItem("grade", res.data.grade);
+
+      navigate("/dashboard");
+    } catch (err) {
+      setError(err.response?.data?.detail || "เข้าสู่ระบบไม่สำเร็จ");
+    }
   }
 
   return (
@@ -23,6 +38,8 @@ function Login() {
         <div className="right-panel">
           <form className="login-container" onSubmit={handleLogin}>
             <h1>เข้าสู่ระบบ</h1>
+
+            {error && <p style={{ color: "red" }}>{error}</p>}
 
             <input
               type="text"
