@@ -1,0 +1,395 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap');
+
+:root {
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --font-sans: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* โครงสร้างหน้ากระดาษหลัก */
+.page {
+  font-family: var(--font-sans);
+  max-width: 640px;
+  margin: 40px auto;
+  background: #ffffff;
+  min-height: 580px;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #e5e5e5;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+/* ส่วนหัวและ Progress Bar */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 32px 12px;
+}
+
+.close-btn {
+  color: #afafaf;
+  font-size: 22px;
+  font-weight: 700;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s;
+}
+.close-btn:hover {
+  color: #3c3c3c;
+}
+
+.progress-track {
+  flex: 1;
+  height: 16px;
+  background: #e5e5e5;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #256CDD;
+  border-radius: 12px;
+  transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.heart-count {
+  font-weight: 800;
+  color: #58cc02;
+  font-size: 16px;
+  min-width: 45px;
+  text-align: right;
+  letter-spacing: 0.5px;
+}
+
+/* ตัวบอดี้เนื้อหา */
+.body {
+  flex: 1;
+  padding: 12px 32px 32px;
+}
+
+.category-tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: 2px solid #5C9BFF;
+  background: #AFCDFD;
+  color: #2C5EAD;
+  margin-bottom: 12px;
+}
+
+.heading {
+  font-size: 24px;
+  font-weight: 800;
+  color: #3c3c3c;
+  margin: 0 0 24px 0;
+}
+
+/* กล่องคำถามแบบ Choice */
+.question-card {
+  font-size: 19px;
+  font-weight: 700;
+  color: #3c3c3c;
+  background: #f7f7f7;
+  border: 2px solid #e5e5e5;
+  border-radius: 16px;
+  padding: 24px;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+/* ระบบกล่องจำลองโค้ดคอมพิวเตอร์ */
+.code-block {
+  background: #1e1e24;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: inset 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.code-dots {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.dot-red { background: #ff5f56; }
+.dot-yellow { background: #ffbd2e; }
+.dot-green { background: #27c93f; }
+
+.code-content {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  line-height: 2.2;
+  color: #abb2bf;
+  white-space: pre-wrap;
+}
+
+.code-text {
+  color: #abb2bf;
+}
+
+/* ช่องว่างสำหรับเติมคำศัพท์ (Blanks) */
+.blank {
+  display: inline-block;
+  min-width: 70px;
+  height: 32px;
+  line-height: 30px;
+  margin: 0 6px;
+  border-bottom: 2px dashed #555861;
+  color: #ffffff;
+  text-align: center;
+  font-weight: 700;
+  transition: all 0.15s;
+  vertical-align: middle;
+}
+
+.blank-filled {
+  border: 2px solid #3b82f6;
+  border-bottom: 4px solid #3b82f6;
+  background: rgba(59, 130, 246, 0.15);
+  border-radius: 8px;
+  color: #60a5fa;
+}
+
+.blank-correct {
+  border: 2px solid #58cc02;
+  border-bottom: 4px solid #4aa302;
+  background: rgba(88, 204, 2, 0.15);
+  color: #58cc02;
+}
+
+.blank-wrong {
+  border: 2px solid #ff4b4b;
+  border-bottom: 4px solid #ea2b2b;
+  background: rgba(255, 75, 75, 0.15);
+  color: #ff4b4b;
+}
+
+/* Word Bank ตัวเลือกด้านล่างสำหรับการเติมคำ */
+.options-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+/* ปุ่มสไตล์ 3D ลอยตัวแบบ Duolingo */
+.option-button, .choice-button {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 700;
+  padding: 12px 20px;
+  border-radius: 14px;
+  border: 2px solid #e5e5e5;
+  border-bottom: 4px solid #e5e5e5;
+  background: #ffffff;
+  color: #3c3c3c;
+  cursor: pointer;
+  user-select: none;
+  transition: all 60ms ease;
+}
+
+.option-button:active:not(:disabled), .choice-button:active:not(:disabled) {
+  transform: translateY(2px);
+  border-bottom-width: 2px;
+}
+
+.option-used {
+  background: #e5e5e5 !important;
+  border-color: #e5e5e5 !important;
+  color: #e5e5e5 !important;
+  border-bottom-width: 2px !important;
+  cursor: default;
+  transform: none !important;
+}
+
+/* รายการปุ่มช้อยส์แบบเรียงลงมา */
+.choice-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.choice-button {
+  text-align: left;
+  padding: 16px 20px;
+  font-size: 16px;
+}
+
+/* สีสันสถานะตัวเลือกแบบต่าง ๆ */
+.choice-selected {
+  border-color: #84d8ff;
+  border-bottom-color: #2baced;
+  background: #ddf4ff;
+  color: #1899d6;
+}
+
+.choice-correct {
+  border-color: #b8f28b;
+  border-bottom-color: #58cc02;
+  background: #d7ffb8;
+  color: #3b6d11;
+}
+
+.choice-wrong {
+  border-color: #ffc1c2;
+  border-bottom-color: #ff4b4b;
+  background: #ffdfe0;
+  color: #ea2b2b;
+}
+
+/* กล่องเฉลยเมื่อกดตรวจแล้วผิด */
+.correction-box {
+  background: #ffeacc;
+  border: 2px solid #ffb84d;
+  color: #805300;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 12px;
+  padding: 12px 18px;
+  margin: 16px 0;
+}
+
+.correction-code {
+  font-family: var(--font-mono);
+  background: #ffffff;
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin-left: 8px;
+  border: 1px solid #ffb84d;
+}
+
+/* แถบ Footer ควบคุมด้านล่างสุด */
+.footer {
+  border-top: 2px solid #e5e5e5;
+  padding: 24px 32px;
+  background: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100px;
+  box-sizing: border-box;
+  transition: background-color 0.2s ease;
+}
+
+.footer.correct {
+  background: #d7ffb8;
+  border-top-color: #b8f28b;
+}
+
+.footer.wrong {
+  background: #ffdfe0;
+  border-top-color: #ffc1c2;
+}
+
+/* ปุ่ม ข้าม (Skip) */
+.skip-button {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 15px;
+  color: #afafaf;
+  background: #ffffff;
+  border: 2px solid #e5e5e5;
+  border-bottom: 4px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: all 60ms;
+}
+.skip-button:hover {
+  background: #f7f7f7;
+}
+.skip-button:active {
+  transform: translateY(2px);
+  border-bottom-width: 2px;
+}
+
+/* ปุ่มส่งคำตอบ / ดำเนินการต่อ */
+.check-button {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  color: #afafaf;
+  background: #e5e5e5;
+  border: none;
+  border-bottom: 4px solid #cccccc;
+  border-radius: 12px;
+  padding: 12px 36px;
+  cursor: not-allowed;
+  transition: all 60ms;
+}
+
+.check-button-active {
+  background: #58cc02;
+  border-bottom: 4px solid #4aa302;
+  color: #ffffff;
+  cursor: pointer;
+}
+.check-button-active:active {
+  transform: translateY(2px);
+  border-bottom-width: 2px;
+}
+
+.continue-button-wrong {
+  background: #ff4b4b;
+  border-bottom: 4px solid #ea2b2b;
+}
+
+/* กล่องสรุปผลข้อความใน Footer */
+.result-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.result-message {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.result-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #ffffff;
+  font-size: 18px;
+}
+.correct .result-icon { color: #58cc02; }
+.wrong .result-icon { color: #ff4b4b; }
+
+.result-text {
+  font-weight: 800;
+  font-size: 17px;
+}
+.correct .result-text { color: #3b6d11; }
+.wrong .result-text { color: #ea2b2b; }
+
+/* ภาชนะส่วนข้อผิดพลาดพื้นหลังว่าง */
+.error-container {
+  font-family: var(--font-sans);
+  text-align: center;
+  padding: 60px 20px;
+}
+.error-container h2 {
+  font-weight: 800;
+  color: #3c3c3c;
+  margin-bottom: 24px;
+}

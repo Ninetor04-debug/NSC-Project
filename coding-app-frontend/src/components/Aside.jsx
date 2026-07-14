@@ -3,8 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 const mainMenu = [
   { key: "home", label: "หน้าหลัก", to: "/Dashboard", icon: "house-solid-full (1).svg" },
   { key: "lessons", label: "บทเรียน", to: "/lessons", icon: "book-solid-full.svg" },
-  { key: "exercises", label: "แบบฝึกหัด", to: "/exercise", icon: "pen-solid-full.svg" },
-  { key: "stats", label: "สถิติ", to: "/stats", icon: "chart_data.svg" },
 ];
 
 function Aside() {
@@ -35,10 +33,6 @@ const handleLogout = (e) => {
 
         <ul className="sidebar-menu sidebar-menu-bottom">
           <li className="nav-item">
-            <Link to="/profile">
-              <img src="account_circle.svg" alt="" className="profile-icon" />
-              <span className="nav-label">โปรไฟล์</span>
-            </Link>
 
             <Link to="/login">
               <img src="logout.svg" alt="" className="logout-icon" />

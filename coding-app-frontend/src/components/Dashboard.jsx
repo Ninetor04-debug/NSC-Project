@@ -133,10 +133,7 @@ function Dashboard() {
               <button className="btn-primary">▶ เริ่มทำ</button>
             </Link>
           )}
-        </div>
-
-        <div className="card card-empty" />
-        <div className="card card-empty" />
+        </div> 
       </div>
 
       {/* ปุ่มไว้ทดสอบ reset progress ระหว่าง dev - เอาออกได้ตอนใช้งานจริง */}

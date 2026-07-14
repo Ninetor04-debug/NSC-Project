@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { lessons } from "../data/lessonsData";
 import { useProgress } from "../context/ProgressContext";
 import QuizChoice from "./QuizChoice";
+import PythonSyntaxQuiz from "./PythonSyntaxQuiz";
 import "./Result.css";
 
 function ExerciseRunner() {
@@ -21,6 +22,24 @@ function ExerciseRunner() {
 
   if (!lesson) {
     return <h2>ไม่พบบทเรียน</h2>;
+  }
+
+  if (lesson.exerciseType === "fill") {
+    return (
+      <PythonSyntaxQuiz
+        lesson={lesson}
+        onBack={() => navigate("/dashboard")}
+        onFinish={(finalScore, total) => {
+          lesson.exercises.forEach((ex) => {
+            const exerciseKey = `${lesson.id}-${ex.id}`;
+            if (!completedExercises.includes(exerciseKey)) {
+              addCompletedExercise(exerciseKey);
+            }
+          });
+          saveLessonScore(lesson.id, finalScore, total);
+        }}
+      />
+    );
   }
 
   const exercises = lesson.exercises || [];
@@ -86,10 +105,6 @@ function ExerciseRunner() {
     <div className="result-page">
       <div className="result-card">
 
-        <div className="result-emoji">
-          {emoji}
-        </div>
-
         <h1>ทำแบบฝึกหัดเสร็จแล้ว</h1>
 
         <p className="result-message">
@@ -118,9 +133,9 @@ function ExerciseRunner() {
 
         <button
           className="finish-btn"
-          onClick={() => navigate("/exercise")}
+          onClick={() => navigate("/dashboard")}
         >
-          กลับหน้าแบบฝึกหัด
+          กลับหน้าหลัก
         </button>
 
       </div>

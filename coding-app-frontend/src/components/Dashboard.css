@@ -210,7 +210,7 @@ body {
   cursor: not-allowed;
 }
  
-/* --- card เวลาเรียนรวม --- */
+
  
 .card-time {
   align-items: center;
@@ -235,7 +235,7 @@ body {
   color: #8892a6;
 }
  
-/* --- card ว่าง (สำหรับ feature ถัดไป) --- */
+
  
 .card-empty {
   min-height: 140px;
@@ -252,4 +252,96 @@ body {
   font-family: inherit;
   cursor: pointer;
 }
- 
+
+@media (max-width: 1024px) {
+  .dashboard-content {
+    padding: 40px 20px 20px 20px; 
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr 1fr; 
+    gap: 16px;
+  }
+
+  .card-lesson {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .navbar {
+    flex-direction: column; 
+    padding: 16px;
+    min-height: auto;
+  }
+
+  .sidebar {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .sidebar-menu {
+    flex-direction: row; 
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .nav-item a {
+    margin: 0;
+    padding: 8px 12px;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .card-lesson {
+    grid-column: span 1;
+  }
+  
+  .card {
+    padding: 24px 20px; 
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-content {
+    padding: 20px 12px;
+  }
+
+  .dashboard-grid {
+    gap: 12px; 
+  }
+
+  .card {
+    padding: 20px 16px;
+  }
+
+  .lesson-title {
+    font-size: 18px;
+  }
+
+  .lesson-title-sm {
+    font-size: 14px;
+  }
+
+  .lesson-subtitle {
+    font-size: 12px;
+  }
+
+  .time-value {
+    font-size: 22px; 
+  }
+
+  .btn-primary {
+    align-self: stretch;
+    text-align: center;
+    padding: 12px 20px;
+    font-size: 15px;
+  }
+  .card-empty {
+    display: none;
+  }
+}
