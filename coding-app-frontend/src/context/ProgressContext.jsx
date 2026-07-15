@@ -1,59 +1,46 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import { fetchProgress, fetchLessonScores } from "../scoreApi";
 
 const ProgressContext = createContext();
 
-const STORAGE_KEY = "muancode_completed_count";
-const EXERCISES_STORAGE_KEY = "muancode_completed_exercises";
-const SCORES_STORAGE_KEY = "muancode_lesson_scores";
-
 export function ProgressProvider({ children }) {
-  // จำนวนบทเรียนที่เรียนจบ
-  const [completedCount, setCompletedCount] = useState(() => {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    return saved ? Number(saved) : 0;
-  });
+  const [completedCount, setCompletedCountState] = useState(0);
+  const [lessonScores, setLessonScores] = useState({});
+  const [completedExercises, setCompletedExercises] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  // แบบฝึกหัดที่ทำแล้ว
-  const [completedExercises, setCompletedExercises] = useState(() => {
-    const saved = localStorage.getItem(EXERCISES_STORAGE_KEY);
-    return saved ? JSON.parse(saved) : [];
-  });
+  const userId = localStorage.getItem("user_id");
 
-  // คะแนนแต่ละบท
-  // ตัวอย่าง
-  // {
-  //   1: { score: 8, total: 10 },
-  //   2: { score: 9, total: 10 }
-  // }
-  const [lessonScores, setLessonScores] = useState(() => {
-    const saved = localStorage.getItem(SCORES_STORAGE_KEY);
-    return saved ? JSON.parse(saved) : {};
-  });
+  async function loadProgress() {
+    if (!userId) {
+      setLoading(false);
+      return;
+    }
+    try {
+      const progress = await fetchProgress(userId);
+      setCompletedCountState(progress.completed_count);
 
-  // -----------------------------
-  // Save LocalStorage
-  // -----------------------------
-  useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, completedCount);
-  }, [completedCount]);
-
-  useEffect(() => {
-    localStorage.setItem(
-      EXERCISES_STORAGE_KEY,
-      JSON.stringify(completedExercises)
-    );
-  }, [completedExercises]);
+      const scores = await fetchLessonScores(userId);
+      const scoreMap = {};
+      scores.forEach((s) => {
+        scoreMap[s.lesson_id] = { score: s.total_score, total: 100 };
+      });
+      setLessonScores(scoreMap);
+    } catch (err) {
+      console.error("โหลด progress ไม่สำเร็จ", err);
+    } finally {
+      setLoading(false);
+    }
+  }
 
   useEffect(() => {
-    localStorage.setItem(
-      SCORES_STORAGE_KEY,
-      JSON.stringify(lessonScores)
-    );
-  }, [lessonScores]);
+    loadProgress();
+  }, [userId]);
 
-  // -----------------------------
-  // Functions
-  // -----------------------------
+  // เรียกใช้แทน setCompletedCount เดิม — sync จาก Backend หลัง submit เสร็จ
+  async function refreshProgress() {
+    await loadProgress();
+  }
 
   function addCompletedExercise(id) {
     setCompletedExercises((prev) =>
@@ -61,40 +48,15 @@ export function ProgressProvider({ children }) {
     );
   }
 
-  // บันทึกคะแนนของบท
-  function saveLessonScore(lessonId, score, total) {
-    setLessonScores((prev) => ({
-      ...prev,
-      [lessonId]: {
-        score,
-        total,
-      },
-    }));
-  }
-
-  function resetProgress() {
-    setCompletedCount(0);
-    setCompletedExercises([]);
-    setLessonScores({});
-
-    localStorage.removeItem(STORAGE_KEY);
-    localStorage.removeItem(EXERCISES_STORAGE_KEY);
-    localStorage.removeItem(SCORES_STORAGE_KEY);
-  }
-
   return (
     <ProgressContext.Provider
       value={{
         completedCount,
-        setCompletedCount,
-
+        lessonScores,
         completedExercises,
         addCompletedExercise,
-
-        lessonScores,
-        saveLessonScore,
-
-        resetProgress,
+        refreshProgress,
+        loading,
       }}
     >
       {children}

@@ -129,3 +129,14 @@ def get_leaderboard(db: Session = Depends(get_db)):
     leaderboard.sort(key=lambda x: x["total_score"], reverse=True)
     
     return leaderboard
+
+# นับจำนวนบทเรียนที่มีการบันทึกคะแนนแล้ว (ถือว่าเรียน+ทำแบบฝึกหัดจบแล้ว)
+@router.get("/user/{user_id}/progress")
+def get_user_progress(user_id: int, db: Session = Depends(get_db)):
+    scores = db.query(Score).filter(Score.user_id == user_id).all()
+    completed_lesson_ids = [s.lesson_id for s in scores]
+
+    return {
+        "completed_count": len(completed_lesson_ids),
+        "completed_lesson_ids": completed_lesson_ids
+    }

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { lessons } from "../data/lessonsData";
 import { useProgress } from "../context/ProgressContext";
+import { submitQuizScore, submitFillScore } from "../scoreApi";
 import QuizChoice from "./QuizChoice";
 import PythonSyntaxQuiz from "./PythonSyntaxQuiz";
 import "./Result.css";
@@ -9,42 +10,44 @@ import "./Result.css";
 function ExerciseRunner() {
   const { lessonId } = useParams();
   const navigate = useNavigate();
+  const userId = localStorage.getItem("user_id");
 
-  const {
-    completedExercises,
-    addCompletedExercise,
-    saveLessonScore,
-  } = useProgress();
+  const { addCompletedExercise, refreshProgress } = useProgress();
 
-  const lesson = lessons.find(
-    (l) => l.id === Number(lessonId)
-  );
+  const lesson = lessons.find((l) => l.id === Number(lessonId));
 
   if (!lesson) {
     return <h2>ไม่พบบทเรียน</h2>;
   }
 
+  // ---------- โจทย์แบบ Fill-in-blank ----------
   if (lesson.exerciseType === "fill") {
     return (
       <PythonSyntaxQuiz
         lesson={lesson}
         onBack={() => navigate("/dashboard")}
-        onFinish={(finalScore, total) => {
+        onFinish={async (finalScore, total) => {
           lesson.exercises.forEach((ex) => {
             const exerciseKey = `${lesson.id}-${ex.id}`;
-            if (!completedExercises.includes(exerciseKey)) {
-              addCompletedExercise(exerciseKey);
-            }
+            addCompletedExercise(exerciseKey);
           });
-          saveLessonScore(lesson.id, finalScore, total);
+
+          try {
+            await submitFillScore(lesson.id, userId, finalScore, total);
+            await refreshProgress();
+          } catch (err) {
+            console.error("ส่งคะแนน fill-in-blank ไม่สำเร็จ", err);
+          }
         }}
       />
     );
   }
 
+  // ---------- โจทย์แบบ Choice (ปรนัย) ----------
   const exercises = lesson.exercises || [];
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [selectedAnswers, setSelectedAnswers] = useState([]);
   const [score, setScore] = useState(0);
   const [finished, setFinished] = useState(false);
 
@@ -54,16 +57,18 @@ function ExerciseRunner() {
     return <h2>บทนี้ยังไม่มีแบบฝึกหัด</h2>;
   }
 
-  function handleNext({ correct }) {
-
+  async function handleNext({ selected, correct }) {
     const exerciseKey = `${lesson.id}-${currentExercise.id}`;
+    addCompletedExercise(exerciseKey);
 
-    if (!completedExercises.includes(exerciseKey)) {
-      addCompletedExercise(exerciseKey);
-    }
+    const answerLetter = ["a", "b", "c", "d"][selected];
+    const newAnswers = [
+      ...selectedAnswers,
+      { quiz_id: currentExercise.id, answer: answerLetter },
+    ];
+    setSelectedAnswers(newAnswers);
 
     let newScore = score;
-
     if (correct) {
       newScore++;
       setScore(newScore);
@@ -74,74 +79,59 @@ function ExerciseRunner() {
         setCurrentIndex((prev) => prev + 1);
       }, 700);
     } else {
-
-      saveLessonScore(
-        lesson.id,
-        newScore,
-        exercises.length
-      );
-
-      setFinished(true);
+      try {
+        await submitQuizScore(lesson.id, userId, newAnswers);
+        await refreshProgress();
+      } catch (err) {
+        console.error("ส่งคะแนน quiz ไม่สำเร็จ", err);
+      } finally {
+        setFinished(true);
+      }
     }
   }
 
   if (finished) {
-  const percent = Math.round((score / exercises.length) * 100);
+    const percent = Math.round((score / exercises.length) * 100);
 
-  let message = "";
-  let emoji = "";
+    let message = "";
+    if (percent === 100) {
+      message = "ยอดเยี่ยม! คุณได้คะแนนเต็ม";
+    } else if (percent >= 80) {
+      message = "เก่งมาก! ทำได้ดีมาก";
+    } else if (percent >= 60) {
+      message = "ผ่านแล้ว! ลองฝึกอีกนิดจะเก่งขึ้น";
+    } else {
+      message = "ลองทบทวนบทเรียนแล้วกลับมาทำใหม่";
+    }
 
-  if (percent === 100) {
-    message = "ยอดเยี่ยม! คุณได้คะแนนเต็ม";
-  } else if (percent >= 80) {
-    message = "เก่งมาก! ทำได้ดีมาก";
-  } else if (percent >= 60) {
-    message = "ผ่านแล้ว! ลองฝึกอีกนิดจะเก่งขึ้น";
-  } else {
-    message = "ลองทบทวนบทเรียนแล้วกลับมาทำใหม่";
-  }
-
-  return (
-    <div className="result-page">
-      <div className="result-card">
-
-        <h1>ทำแบบฝึกหัดเสร็จแล้ว</h1>
-
-        <p className="result-message">
-          {message}
-        </p>
-
-        <div className="score-circle">
-          <span>{percent}%</span>
-        </div>
-
-        <h2 className="score-text">
-          {score} / {exercises.length} คะแนน
-        </h2>
-
-        <div className="result-detail">
-          <div>
-             ตอบถูก
-            <strong>{score}</strong>
+    return (
+      <div className="result-page">
+        <div className="result-card">
+          <h1>ทำแบบฝึกหัดเสร็จแล้ว</h1>
+          <p className="result-message">{message}</p>
+          <div className="score-circle">
+            <span>{percent}%</span>
           </div>
-
-          <div>
-             ตอบผิด
-            <strong>{exercises.length - score}</strong>
+          <h2 className="score-text">
+            {score} / {exercises.length} คะแนน
+          </h2>
+          <div className="result-detail">
+            <div>
+              ตอบถูก
+              <strong>{score}</strong>
+            </div>
+            <div>
+              ตอบผิด
+              <strong>{exercises.length - score}</strong>
+            </div>
           </div>
+          <button className="finish-btn" onClick={() => navigate("/dashboard")}>
+            กลับหน้าหลัก
+          </button>
         </div>
-
-        <button
-          className="finish-btn"
-          onClick={() => navigate("/dashboard")}
-        >
-          กลับหน้าหลัก
-        </button>
-
       </div>
-    </div>
-  );
-}
+    );
+  }
 
   return (
     <QuizChoice

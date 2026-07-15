@@ -9,8 +9,12 @@ function Aside() {
 const navigate = useNavigate();
 const handleLogout = (e) => {
     e.preventDefault();
-    navigate("/login");
-  };
+    localStorage.removeItem("token");
+    localStorage.removeItem("user_id");
+    localStorage.removeItem("full_name");
+    localStorage.removeItem("grade");
+    window.location.href = "/login";  // ใช้ window.location.href เหมือนกัน
+};
   return (
     <aside className="sidebar">
       <div className="sidebar-header">

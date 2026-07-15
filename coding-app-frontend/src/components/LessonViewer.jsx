@@ -1,20 +1,11 @@
-import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { useProgress } from "../context/ProgressContext";
+import { useNavigate, useParams } from "react-router-dom";
 import { lessons } from "../data/lessonsData";
 
 function LessonViewer() {
   const { id } = useParams();
-  const { state } = useLocation();
   const navigate = useNavigate();
 
-  const { completedCount, setCompletedCount } = useProgress();
-
-const lesson = lessons.find(
-  (l) => l.id === Number(id)
-);
-
-console.log("ID:", id);
-console.log("LESSON:", lesson);
+  const lesson = lessons.find((l) => l.id === Number(id));
 
   if (!lesson) {
     return <h2>ไม่พบบทเรียน</h2>;
@@ -24,15 +15,10 @@ console.log("LESSON:", lesson);
     return <h2>บทเรียนนี้ยังไม่มีไฟล์ PDF</h2>;
   }
 
-const handleCompleteLesson = () => {
-  // ป้องกันการกดซ้ำ
-  if (lesson.id > completedCount) {
-    setCompletedCount(lesson.id);
-  }
-
-  // หลังเรียนจบ ไปทำแบบฝึกหัดของบทนี้ก่อน
-  navigate(`/exercise/${lesson.id}`);
-};
+  const handleCompleteLesson = () => {
+    // ไม่อัพเดต progress ตรงนี้แล้ว — progress จะขยับก็ต่อเมื่อทำแบบฝึกหัดเสร็จจริง
+    navigate(`/exercise/${lesson.id}`);
+  };
 
   return (
     <>
@@ -44,17 +30,8 @@ const handleCompleteLesson = () => {
         style={{ border: "none" }}
       />
 
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          marginTop: "20px",
-        }}
-      >
-        <button
-          className="btn-primary"
-          onClick={handleCompleteLesson}
-        >
+      <div style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}>
+        <button className="btn-primary" onClick={handleCompleteLesson}>
           ✔ เรียนจบบทนี้
         </button>
       </div>

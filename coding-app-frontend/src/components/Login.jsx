@@ -10,7 +10,7 @@ function Login() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  async function handleLogin(e) {
+async function handleLogin(e) {
     e.preventDefault();
     setError("");
 
@@ -25,7 +25,9 @@ function Login() {
       localStorage.setItem("full_name", res.data.full_name);
       localStorage.setItem("grade", res.data.grade);
 
-      navigate("/dashboard");
+      // เปลี่ยนจาก navigate เป็น window.location.href
+      // เพื่อ reload หน้าเว็บทั้งหมด ทำให้ ProgressContext โหลดข้อมูลใหม่ตาม user_id ล่าสุด
+      window.location.href = "/dashboard";
     } catch (err) {
       setError(err.response?.data?.detail || "เข้าสู่ระบบไม่สำเร็จ");
     }
