@@ -14,6 +14,12 @@ async function handleLogin(e) {
     e.preventDefault();
     setError("");
 
+    // เพิ่มการเช็คก่อนว่ากรอกครบไหม
+    if (!username.trim() || !password.trim()) {
+      setError("กรุณากรอกชื่อผู้ใช้และรหัสผ่าน");
+      return;
+    }
+
     try {
       const res = await api.post("/auth/login", {
         full_name: username,
@@ -25,13 +31,11 @@ async function handleLogin(e) {
       localStorage.setItem("full_name", res.data.full_name);
       localStorage.setItem("grade", res.data.grade);
 
-      // เปลี่ยนจาก navigate เป็น window.location.href
-      // เพื่อ reload หน้าเว็บทั้งหมด ทำให้ ProgressContext โหลดข้อมูลใหม่ตาม user_id ล่าสุด
       window.location.href = "/dashboard";
     } catch (err) {
       setError(err.response?.data?.detail || "เข้าสู่ระบบไม่สำเร็จ");
     }
-  }
+}
 
   return (
     <>
@@ -49,6 +53,7 @@ async function handleLogin(e) {
               className="username-input"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
+              required
             />
 
             <input
@@ -57,6 +62,7 @@ async function handleLogin(e) {
               className="password-input"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              required
             />
 
             <button
