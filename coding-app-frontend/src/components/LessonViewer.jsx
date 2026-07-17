@@ -16,26 +16,52 @@ function LessonViewer() {
   }
 
   const handleCompleteLesson = () => {
-    // ไม่อัพเดต progress ตรงนี้แล้ว — progress จะขยับก็ต่อเมื่อทำแบบฝึกหัดเสร็จจริง
     navigate(`/exercise/${lesson.id}`);
   };
 
   return (
-    <>
-      <iframe
-        src={lesson.pdf}
-        title={lesson.title}
-        width="100%"
-        height="900"
-        style={{ border: "none" }}
-      />
+    <div
+      style={{
+        width: "100%",
+        maxWidth: "100%",
+        padding: "0 12px",
+        boxSizing: "border-box",
+      }}
+    >
+      <div
+        style={{
+          width: "100%",
+          // อัตราส่วนของ PDF ปกติ A4 แนวตั้ง ~ 1:1.414
+          // ใช้ aspect-ratio แทนความสูงตายตัว จะได้ปรับตามความกว้างจออัตโนมัติ
+          aspectRatio: "1 / 1.3",
+          maxHeight: "85vh",
+        }}
+      >
+        <iframe
+          src={lesson.pdf}
+          title={lesson.title}
+          width="100%"
+          height="100%"
+          style={{
+            border: "none",
+            display: "block",
+          }}
+        />
+      </div>
 
-      <div style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          marginTop: "20px",
+          marginBottom: "20px",
+        }}
+      >
         <button className="btn-primary" onClick={handleCompleteLesson}>
           ✔ เรียนจบบทนี้
         </button>
       </div>
-    </>
+    </div>
   );
 }
 
