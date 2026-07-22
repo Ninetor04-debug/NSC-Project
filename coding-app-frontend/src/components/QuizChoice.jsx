@@ -6,10 +6,17 @@ export default function QuizChoice({
   options = [],
   answer,
   onNext,
+  onPrev,
+  onArrowNext,
+  canGoPrev,
+  canGoNext,
+  currentIndex,
+  totalExercises,
+  score,
+  onBack,
 }) {
   const [selected, setSelected] = useState(null);
 
-  // รีเซ็ตเมื่อเปลี่ยนข้อใหม่
   useEffect(() => {
     setSelected(null);
   }, [question]);
@@ -23,18 +30,63 @@ export default function QuizChoice({
     });
   }
 
+  const progressPct =
+    ((currentIndex + 1) / totalExercises) * 100;
+
   return (
     <div className="qc-screen">
-      <div className="qc-card">
-        {question && <p className="qc-question">{question}</p>}
 
+      {/* Header */}
+      <div className="header">
+
+        {/* กากบาท */}
+        <button
+          type="button"
+          className="close-btn"
+          onClick={onBack}
+          aria-label="ออกจากแบบฝึกหัด"
+        >
+          ✕
+        </button>
+
+        {/* Progress Track */}
+        <div className="progress-track">
+          <div
+            className="progress-fill"
+            style={{
+              width: `${progressPct}%`,
+            }}
+          />
+        </div>
+
+        {/* คะแนน */}
+        <div className="score-count">
+          ✔ {score}
+        </div>
+
+      </div>
+
+
+      {/* เนื้อหาหลัก */}
+      <div className="qc-card">
+
+        {/* คำถาม */}
+        {question && (
+          <p className="qc-question">
+            {question}
+          </p>
+        )}
+
+        {/* ตัวเลือก */}
         <div className="qc-options">
           {options.map((option, index) => (
             <button
               key={index}
               type="button"
               className={`qc-option ${
-                selected === index ? "qc-option--selected" : ""
+                selected === index
+                  ? "qc-option--selected"
+                  : ""
               }`}
               onClick={() => setSelected(index)}
             >
@@ -43,6 +95,7 @@ export default function QuizChoice({
           ))}
         </div>
 
+        {/* ปุ่มต่อไป */}
         <button
           type="button"
           className="qc-next-btn"
@@ -51,7 +104,35 @@ export default function QuizChoice({
         >
           ต่อไป
         </button>
+
+
+        {/* ลูกศรด้านล่าง */}
+        <div className="qc-bottom-nav">
+
+          <button
+            type="button"
+            className="qc-arrow-btn"
+            onClick={onPrev}
+            disabled={!canGoPrev}
+            aria-label="ข้อก่อนหน้า"
+          >
+            ‹
+          </button>
+
+          <button
+            type="button"
+            className="qc-arrow-btn"
+            onClick={onArrowNext}
+            disabled={!canGoNext}
+            aria-label="ข้อถัดไป"
+          >
+            ›
+          </button>
+
+        </div>
+
       </div>
+
     </div>
   );
 }

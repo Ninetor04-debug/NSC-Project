@@ -1,34 +1,144 @@
-@import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Kanit", sans-serif;
-}
 .qc-screen {
   min-height: 100vh;
   background: #f2f2f2;
+
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 64px 20px;
-  font-family: "Segoe UI", "Noto Sans Thai", sans-serif;
-  box-sizing: border-box;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 24px 20px;
+
+  font-family: "Kanit", sans-serif;
 }
+
+
+/* =========================
+   Header
+========================= */
+
+.header {
+  width: 100%;
+  max-width: 500px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 16px;
+}
+
+
+/* =========================
+   ปุ่มกากบาท
+========================= */
+
+.close-btn {
+  flex-shrink: 0;
+
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
+  border: none;
+
+  color: #afafaf;
+
+  font-size: 22px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: color 0.2s ease;
+}
+
+.close-btn:hover {
+  color: #3c3c3c;
+}
+
+
+/* =========================
+   Progress Track
+========================= */
+
+.progress-track {
+  flex: 1;
+
+  height: 16px;
+
+  background: #e5e5e5;
+
+  border-radius: 12px;
+
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+
+  background: #256CDD;
+
+  border-radius: 12px;
+
+  transition:
+    width 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* =========================
+   Score
+========================= */
+
+.score-count {
+  flex-shrink: 0;
+
+  min-width: 50px;
+
+  color: #58cc02;
+
+  font-size: 16px;
+  font-weight: 800;
+
+  white-space: nowrap;
+
+  text-align: right;
+}
+
+
+/* =========================
+   Card
+========================= */
 
 .qc-card {
   width: 100%;
-  max-width: 320px;
+  max-width: 500px;
+
+  margin-top: 40px;
+
   display: flex;
   flex-direction: column;
 }
 
+
+/* =========================
+   Question
+========================= */
+
 .qc-question {
   color: #1a1a1a;
-  font-size: 16px;
+
+  font-size: 18px;
   font-weight: 600;
-  margin: 0 0 20px;
+
+  margin-bottom: 20px;
 }
+
+
+/* =========================
+   Options
+========================= */
 
 .qc-options {
   display: flex;
@@ -39,17 +149,24 @@
 .qc-option {
   width: 100%;
   min-height: 52px;
+
   background: #ffffff;
+
   border: 1.5px solid #e2e2e2;
   border-radius: 14px;
+
   padding: 0 20px;
+
   font-family: inherit;
   font-size: 15px;
   color: #1a1a1a;
+
   text-align: left;
   cursor: pointer;
-  box-sizing: border-box;
-  transition: background 0.15s ease, border-color 0.15s ease;
+
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
 }
 
 .qc-option:hover {
@@ -62,27 +179,102 @@
   font-weight: 600;
 }
 
+
+/* =========================
+   Next Button
+========================= */
+
 .qc-next-btn {
   margin-top: 40px;
   align-self: center;
+
   width: 180px;
   height: 48px;
+
   background: #2f5fa8;
+
   border: none;
   border-radius: 24px;
+
   color: #ffffff;
+
+  font-family: inherit;
   font-size: 15px;
   font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0 3px 0 #1f3f75;
-}
 
-.qc-next-btn:active {
-  transform: translateY(2px);
-  box-shadow: 0 1px 0 #1f3f75;
+  cursor: pointer;
+
+  box-shadow: 0 3px 0 #1f3f75;
 }
 
 .qc-next-btn:disabled {
   opacity: 0.5;
+  cursor: not-allowed;
+}
+.qc-next-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #1f3f75;
+}
+.qc-next-btn:not(:disabled) {
+  background: #2f5fa8;
+  border-bottom: 4px solid #1f3f75;
+}
+
+
+/* =========================
+   Bottom Navigation
+========================= */
+
+.qc-bottom-nav {
+  width: 100%;
+
+  margin-top: 50px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+/* =========================
+   Arrow Button
+========================= */
+
+.qc-arrow-btn {
+  width: 44px;
+  height: 44px;
+
+  border-radius: 50%;
+
+  border: 2px solid #e5e5e5;
+  border-bottom: 4px solid #d5d5d5;
+
+  background: #ffffff;
+  color: #3c3c3c;
+
+  font-size: 28px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.1s ease;
+}
+
+.qc-arrow-btn:hover:not(:disabled) {
+  background: #f7f7f7;
+}
+
+.qc-arrow-btn:active:not(:disabled) {
+  transform: translateY(2px);
+}
+
+.qc-arrow-btn:disabled {
+  color: #d5d5d5;
+  border-color: #eeeeee;
+  border-bottom-color: #eeeeee;
   cursor: not-allowed;
 }

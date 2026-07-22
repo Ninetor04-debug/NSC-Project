@@ -731,10 +731,73 @@ export const lessons = [
         code: [
           { type: "text", value: "x = 5 > 3\ny = 2 > 10\nprint(x " },
           { type: "blank", id: "b1", answer: "or" },
-          { type: "text", value: " y)  # จริงแค่ด้านใดด้านหนึ่งก็พอ" },
+          { type: "text", value: " y)  # เติมคำให้จริงแค่ด้านใดด้านหนึ่ง" },
         ],
         options: ["or", "and", "not", "=="],
       },
+      {
+        id: 4,
+        code: [
+          { type: "text", value: "score = 40\nprint(score >= 50 "},
+          { type: "blank", value: "b1", answer: "and"},
+          { type: "text", value: "score <= 100) #เติมคำให้ผลลัพธ์เป็น False"}
+        ],
+        options: ["and", "or", "not", "=="],
+      },
+      {
+        id: 5,
+        code: [
+          { type: "text", value: "num = 8\nis_even_positive = (num % 2 == 0)"},
+          { type: "blank", value: "b1", answer: "and"},
+          { type: "text", value: "(num > 0) #เติมคำให้ผลลัพธ์เป็น True"}
+        ],
+        options: ["or","and","==","not"]
+      },
+      {
+        id: 6,
+        code: [
+          { type: "text", value: "age = 15\nprint(age >= 13"},
+          { type: "blank", value: "b1", answer: "and"},
+          { type: "text", value: "age <= 18) #เติมคำให้ผลลัพธ์เป็น True"}
+        ],
+        options: ["and", "or", "not", "=="]
+      },
+      {
+        id: 7,
+        code: [
+          { type: "text", value: "score = 45\nhas_bonus = True\nis_passed = (score >= 50)"},
+          { type: "blank", value: "b1", answer: "or"},
+          { type: "text", value: "has_bonus #เติมคำให้ผลลัพธ์เป็น True" }
+        ],
+        options: ["or","and","==","not"]
+      },
+      {
+        id: 8,
+        code : [
+          { type : "text", value: "username_correct = True\npassword_correct = False\nlogin_success = username_correct"},
+          { type : "blank", value: "b1", answer: "and"},
+          { type : "text", value: "password_correct\n#เติมคำให้ผลลัพธ์เป็น False"}
+        ],
+        options: ["and", "or", "!", "=="]
+      },
+      {
+        id: 9,
+        code: [
+          { type : "text", value: "age = 15\nhas_permission = False\nprint(age >= 18"},
+          { type : "blank", value: "b1", answer: "or"},
+          { type : "text", value: "age >= 13 and has_permission)\n#เติมคำให้ผลลัพธ์เป็น True"}
+        ],
+        options: ["and", "or", "not", "=="]
+      },
+      {
+        id: 10,
+        code : [
+          { type : "text", value: "is_student = True\nis_teacher = False\nhas_id = True\nprint((is_student"},
+          { type : "blank", value: "b1", answer: "or"},
+          { type : "text", value: "is_teacher) and has_id #เติมคำให้ผลลัพธ์เป็น True"}
+        ],
+        options: ["and", "or", "not", "=="]
+      }
     ] 
   },
   { 

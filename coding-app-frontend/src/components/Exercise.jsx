@@ -18,7 +18,7 @@ function Exercise() {
   if (!exercise) {
     return <h2>ไม่พบแบบฝึกหัด</h2>;
   }
-
+  
 
   return (
     <QuizChoice

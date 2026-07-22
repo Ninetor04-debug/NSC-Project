@@ -43,7 +43,7 @@ function ExerciseRunner() {
     );
   }
 
-  // ---------- โจทย์แบบ Choice (ปรนัย) ----------
+  // ---------- โจทย์แบบ Choice (ปรนัย) พร้อม arrow nav ----------
   const exercises = lesson.exercises || [];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -87,6 +87,20 @@ function ExerciseRunner() {
       } finally {
         setFinished(true);
       }
+    }
+  }
+
+  // เลื่อนกลับไปข้อก่อนหน้า (แค่ดู ไม่กระทบคะแนน)
+  function handlePrev() {
+    if (currentIndex > 0) {
+      setCurrentIndex((prev) => prev - 1);
+    }
+  }
+
+  // เลื่อนไปข้อถัดไปด้วยลูกศร (แค่ดู ไม่กระทบคะแนน)
+  function handleArrowNext() {
+    if (currentIndex < exercises.length - 1) {
+      setCurrentIndex((prev) => prev + 1);
     }
   }
 
@@ -139,6 +153,14 @@ function ExerciseRunner() {
       options={currentExercise.options}
       answer={currentExercise.answer}
       onNext={handleNext}
+      onPrev={handlePrev}
+      onArrowNext={handleArrowNext}
+      canGoPrev={currentIndex > 0}
+      canGoNext={currentIndex < exercises.length - 1}
+      currentIndex={currentIndex}
+      totalExercises={exercises.length}
+      score={score}
+      onBack={() => navigate("/dashboard")}
     />
   );
 }

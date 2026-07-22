@@ -164,12 +164,12 @@ export default function PythonSyntaxQuiz({ lesson, onFinish, onBack }) {
   return (
     <div className="page">
       {/* ส่วนหัวแสดงความคืบหน้า */}
-      <div className="header">
+      <div className="python-header">
         <span className="close-btn" onClick={onBack}>✕</span>
-        <div className="progress-track">
-          <div className="progress-fill" style={{ width: `${progressPct}%` }} />
+        <div className="python-progress-track">
+          <div className="python-progress-fill" style={{ width: `${progressPct}%` }} />
         </div>
-        <span className="heart-count">{score} ✓</span>
+        <span className="python-heart-count">{score} ✓</span>
       </div>
 
       {/* ส่วนเนื้อหาหลัก */}
