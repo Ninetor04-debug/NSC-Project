@@ -57,7 +57,7 @@ function Dashboard() {
               ▶ เรียนจบแล้ว
             </button>
           ) : (
-            <Link to={`/lesson/${currentLesson.id}`}>
+            <Link to={`/lesson-video/${currentLesson.id}`}>
               <button className="btn-primary">▶ เริ่มเรียน</button>
             </Link>
           )}

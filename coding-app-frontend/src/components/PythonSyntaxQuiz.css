@@ -393,3 +393,106 @@
   color: #3c3c3c;
   margin-bottom: 24px;
 }
+/* =========================
+   Hint Button
+========================= */
+
+.hint-button {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+
+  width: 56px;
+  height: 56px;
+
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+
+  background: #2057AD;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  z-index: 1001;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.hint-button:hover {
+  transform: translateY(-3px);
+  background: #3765AD;
+}
+
+.hint-button:active {
+  transform: scale(0.95);
+}
+
+.hint-icon {
+  display: block;
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+
+/* =========================
+   Hint Box
+========================= */
+
+.hint-box {
+  position: fixed;
+
+  right: 24px;
+
+  /* ปุ่มสูง 56px + ระยะห่าง 16px */
+  bottom: 96px;
+
+  width: 280px;
+  max-width: calc(100vw - 48px);
+
+  padding: 16px;
+
+  background: #ffffff;
+
+  border-radius: 16px;
+
+  z-index: 1000;
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+
+  box-sizing: border-box;
+
+  animation: hintSlideUp 0.2s ease;
+}
+
+.hint-title {
+  font-size: 16px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.hint-content {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #555;
+}
+
+@keyframes hintSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

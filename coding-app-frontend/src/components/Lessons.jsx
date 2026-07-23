@@ -30,7 +30,7 @@ function Lessons() {
   };
 
   const handleStartLesson = () => {
-    navigate(`/lesson/${selectedLesson.id}`, {
+    navigate(`/lesson-video/${selectedLesson.id}`, {
       state: selectedLesson,
     });
 

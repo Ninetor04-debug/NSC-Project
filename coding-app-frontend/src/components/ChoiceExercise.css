@@ -278,3 +278,81 @@
   border-bottom-color: #eeeeee;
   cursor: not-allowed;
 }
+/* =========================
+   Hint Button
+========================= */
+
+.hint-button {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1000;
+  padding: 12px 20px;
+  border: none;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #2C5EAD;
+  color: #333;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.hint-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.hint-icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+/* =========================
+   Hint Box
+========================= */
+
+.hint-box {
+  position: fixed;
+  right: 24px;
+  bottom: 80px;
+  z-index: 999;
+  width: 280px;
+  padding: 16px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  animation: hintSlideUp 0.2s ease;
+}
+
+.hint-title {
+  font-size: 16px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.hint-content {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #555;
+}
+
+@keyframes hintSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,8 +1,9 @@
 export const lessons = [
   {
     id: 1,
-    title: "ทำความรู้จักกับ Python",
-    pdf: "/pdf/python-introduction.pdf",
+    title: "ทำความรู้จักกับ Python (Introduction to Python)",
+    pdf: "/pdf/NSC_introduction_to_python.pdf",
+    video: "/video/NSC - intoduction to python.mp4",
     duration: 20,
     exerciseType: "choice",
     exercises: [
@@ -17,6 +18,7 @@ export const lessons = [
           "ภาษาเครื่อง"
         ],
         answer: 2,
+        hint: "Python ถูกออกแบบมาให้ไวยากรณ์ใกล้เคียงกับภาษาอังกฤษ มนุษย์อ่านและเขียนได้ง่าย"
       },
       {
         id: 2,
@@ -29,6 +31,7 @@ export const lessons = [
           "ถูกทุกข้อ",
         ],
         answer: 1,
+        hint: "Python สามารถนำไปประยุกต์ใช้ในหลากหลายด้าน"
       },
       {
         id: 3,
@@ -41,6 +44,7 @@ export const lessons = [
           "Guido van Rossum",
         ],
         answer: 3,
+        hint: "ผู้สร้างเป็นชาวเนเธอแลนด์"
       },
       {
         id: 4,
@@ -53,6 +57,7 @@ export const lessons = [
           "1998",
         ],
         answer: 1,
+        hint: "Python ได้ทำการพัฒนาในช่วงปีปลาย 1989"
       },
       {
         id: 5,
@@ -65,6 +70,7 @@ export const lessons = [
           "เป็นระบบปิด (Closed-source) ที่ต้องซื้อลิขสิทธิ์อย่างเป็นทางการจากผู้พัฒนาเท่านั้น",
         ],
         answer: 1,
+        hint: "มนุษย์สามารถอ่าน และเขียนโดยเข้าใจได้ง่าย เหมาะสำหรับผู้เริ่มต้น"
       },
       {
         id: 6,
@@ -77,6 +83,7 @@ export const lessons = [
           ".php",
         ],
         answer: 0,
+        hint: "นามสกุลไฟล์โปรแกรมมักจะใช้ ตัวอักษรย่อ 2-3 ตัวแรก จากชื่อของภาษานั้นๆ"
       },
       {
         id: 7,
@@ -89,6 +96,7 @@ export const lessons = [
           "x = 10",
         ],
         answer: 3,
+        hint: "เวลาสร้างตัวแปร สามารถพิมพ์ ชื่อตัวแปร = ค่าที่ต้องการ ได้ทันที"
       },
       {
         id: 8,
@@ -101,9 +109,10 @@ export const lessons = [
           "echo()",
         ],
         answer: 0,
+        hint: "Python เน้นความเรียบง่าย คำสั่งแสดงผลใช้ภาษาอังกฤษตรงๆ แปลว่า 'พิมพ์' โดยไม่ต้องมีตัวอักษรอื่นต่อท้าย"
       },
       {
-        id: 10,
+        id: 9,
         type: "choice",
         question: "ข้อใดอธิบายความแตกต่างระหว่างภาษา Python กับภาษาเครื่องได้ถูกต้องที่สุด",
         options: [
@@ -113,13 +122,28 @@ export const lessons = [
           "ทั้งสองภาษาไม่มีความแตกต่างกันเลย สามารถใช้แทนกันได้ทุกกรณี",
         ],
         answer: 1,
+        hint: "Python สร้างมาเพื่อให้มนุษย์อ่านและเข้าใจได้ง่าย แต่ภาษาเครื่องคือสิ่งที่คอมพิวเตอร์เข้าใจได้ทันที"
+      },
+      {
+        id: 10,
+        typ: "choice",
+        question: "ข้อใดเป็นชื่อไฟล์ Python ที่ถูกต้อง?",
+        options: [
+          "program.pythonfile",
+          "program.js",
+          "program.py",
+          "program.cpp"
+        ],
+        answer: 2,
+        hint: "สังเกตุจากนามสกุลไฟล์เป็นหลัก"
       }
     ]
   },
   {
     id: 2,
-    title: "ตัวแปร",
-    pdf: "/pdf/variable (1).pdf",
+    title: "ตัวแปร (Variable)",
+    pdf: "/pdf/NSC_variable.pdf",
+    video: "/video/NSC-variable.mp4",
     duration: 15,
     exerciseType: "choice",
     exercises: [
@@ -134,6 +158,7 @@ export const lessons = [
           "let x = 10",
         ],
         answer: 0,
+        hint: "Python ไม่จำเป็นต้องระบุชนิดข้อมูลหน้าตัวแปร"
       },
       {
         id: 2,
@@ -146,6 +171,7 @@ export const lessons = [
           "สร้างโฟลเดอร์",
         ],
         answer: 0,
+        hint: "ลองเปรียบตัวแปรเหมือน 'กล่อง' ในการเขียนโปรแกรม มีไว้ใส่สิ่งต่างๆ"
       },
       {
         id: 3,
@@ -158,6 +184,7 @@ export const lessons = [
           "my name",
         ],
         answer: 1,
+        hint: "กฎการตั้งชื่อตัวแปร ห้ามขึ้นต้นด้วยตัวเลข, ห้ามมีเว้นวรรค และสัญลักษณ์เดียวที่ใช้ได้คือเครื่องหมายขีเล่าง (_)"
       },
       {
         id: 4,
@@ -170,6 +197,7 @@ export const lessons = [
           "if",
         ],
         answer: 0,
+        hint: "ภาษา Python มีคำสงวนหรือคำสั่งเฉพาะที่ไม่สามารถนำมาตั้งเป็นชื่อตัวแปรได้"
       },
       {
         id: 5,
@@ -182,6 +210,7 @@ export const lessons = [
           "var name : 'Python'",
         ],
         answer: 0,
+        hint: "Python ไม่ต้องใส่คำระบุชนิดข้อมูล"
       },
       {
         id: 6,
@@ -194,6 +223,7 @@ export const lessons = [
           "เครื่องหมายลูกศร ( <- )",
         ],
         answer: 0,
+        hint: "ระวังอย่าสับสนระหว่างการ 'กำหนดค่า' กับการ 'เปรียบเทียบค่า'"
       },
       {
         id: 7,
@@ -206,6 +236,7 @@ export const lessons = [
           "print_data",
         ],
         answer: 2,
+        hint: "ตัวแปรที่เป็นคำสงวนหรือคำสั่งเฉพาะไม่สามารถนำมาตั้งชื่อตัวแปรได้"
       },
       {
         id: 8,
@@ -218,6 +249,7 @@ export const lessons = [
           "Error",
         ],
         answer: 1,
+        hint: "คำสั่ง print(x) ไม่มีเครื่องหมายคำพูดครอบอยู่"
       },
       {
         id: 9,
@@ -230,6 +262,7 @@ export const lessons = [
           "30",
         ],
         answer: 3,
+        hint: "ตัวแปร a และ b เก็บค่าเป็นตัวเลขไม่ใช่ข้อความ"
       },
       {
         id: 10,
@@ -242,13 +275,15 @@ export const lessons = [
           "(age)"
         ],
         answer: 0,
+        hint: "คำสั่ง print(age) ไม่มีเครื่องหมายอัญประกาศ (' ') ครอบคำว่า age อยู่"
       }
     ],
   },
   {
     id: 3,
-    title: "ชนิดข้อมูลพื้นฐาน",
-    pdf: "/pdf/basic_variable.pdf",
+    title: "ชนิดข้อมูลพื้นฐาน (Data Types)",
+    pdf: "/pdf/NSC_Data_types.pdf",
+    video: "/video/NSC-Data types.mp4",
     duration: 20,
     exerciseType: "choice",
     exercises: [
@@ -263,6 +298,7 @@ export const lessons = [
           "True",
         ],
         answer: 1,
+        hint: "ชนิดข้อมูลจำนวนเต็ม (Integer) จะไม่มีจุดทศนิยม และไม่เป็นค่าความจริงและข้อความ"
       },
       {
         id: 2,
@@ -275,6 +311,7 @@ export const lessons = [
           "False",
         ],
         answer: 2,
+        hint: "ชนิดข้อมูลจำนวนจริง (Float) คือชนิดข้อมูลตัวเลขที่มี 'จุดทศนิยม'"
       },
       {
         id: 3,
@@ -287,6 +324,7 @@ export const lessons = [
           "True",
         ],
         answer: 0,
+        hint: "ชนิดข้อมูลข้อความ (String) ใน Python จะต้องครอบด้วยเครื่องหมายอัญประกาศ (\" \" หรือ ' ')"
       },
       {
         id: 4,
@@ -299,6 +337,7 @@ export const lessons = [
           "3.14",
         ],
         answer: 2,
+        hint: "ชนิดข้อมูลตรรกะ (Boolean) สามารถบอกได้ว่าเป็นจริงหรือเท็จ"
       },
       {
         id: 5,
@@ -311,6 +350,7 @@ export const lessons = [
           "data()",
         ],
         answer: 2,
+        hint: "คำสั่งนี้ย่อมาจากคำว่า 'ประเภท' หรือ 'ชนิด' ในภาษาอังกฤษโดยตรง"
       },
       {
         id: 6,
@@ -323,6 +363,7 @@ export const lessons = [
           "bool",
         ],
         answer: 2,
+        hint: "ค่าที่เก็บไว้ในตัวแปร age ไม่มีจุดทศนิยม ไม่สามารถบอกได้ว่าเป็นจริงหรือเท็จและไม่เป็นข้อความ"
       },
       {
         id: 7,
@@ -335,6 +376,7 @@ export const lessons = [
           "bool",
         ],
         answer: 2,
+        hint: "สังเกตว่าค่า 99.99 เป็นตัวเลขที่มีจุดทศนิยม"
       },
       {
         id: 8,
@@ -347,6 +389,7 @@ export const lessons = [
           "bool",
         ],
         answer: 0,
+        hint: "ค่า \"Alice\" ถูกครอบด้วยเครื่องหมายอัญประกาศ (\" \")"
       },
       {
         id: 9,
@@ -359,6 +402,7 @@ export const lessons = [
           "status = '1'",
         ],
         answer: 0,
+        hint: "ค่า Boolean ต้องเป็นคำว่า True หรือ False และไม่มีอัญประกาศครอบ"
       },
       {
         id: 10,
@@ -371,13 +415,15 @@ export const lessons = [
           "Float ใช้เก็บค่า True และ False",
         ],
         answer: 0,
+        hint: "ลองจับคู่ชนิดข้อมูลให้ถูกต้อง"
       }
     ]
   },
   {
     id: 4,
-    title: "การแปลงชนิดข้อมูล",
-    pdf: "/pdf/python_data.pdf",
+    title: "การแปลงชนิดข้อมูล (Conversion)",
+    pdf: "/pdf/NSC_Data_conversion.pdf",
+    video: "/video/NSC-conversion.mp4",
     duration: 15,
     exerciseType: "choice",
     exercises: [
@@ -392,6 +438,7 @@ export const lessons = [
           "Code Change",
         ],
         answer: 0,
+        hint: "สังเกตคำศัพท์ภาษาอังกฤษ คำว่า 'ชนิด/ประเภท' และ 'การแปลง/แปลงค่า'"
       },
       {
         id: 2,
@@ -404,6 +451,7 @@ export const lessons = [
           "bool()",
         ],
         answer: 1,
+        hint: "คำสั่งแปลงชนิดข้อมูลส่วนใหญ่จะใช้ตัวย่อ 3 ตัวอักษรของชนิดข้อมูลนั้นๆ"
       },
       {
         id: 3,
@@ -416,6 +464,7 @@ export const lessons = [
           "char()",
         ],
         answer: 2,
+        hint: "Python นิยมใช้คำย่อ 3 ตัวแรกของคำว่า String ในการสร้างคำสั่งแปลงชนิดข้อมูล"
       },
       {
         id: 4,
@@ -428,6 +477,7 @@ export const lessons = [
           "Error",
         ],
         answer: 1,
+        hint: "คำสั่ง int() จะทำการปลดเครื่องหมายอัญประกาศออก และเปลี่ยนชนิดของข้อมูลเดิม"
       },
       {
         id: 5,
@@ -440,6 +490,7 @@ export const lessons = [
           "Error",
         ],
         answer: 2,
+        hint: "float() คือคำสั่งที่ใช้แปลงข้อมูลให้กลายเป็น 'จำนวนจริง' หรือ 'ตัวเลขทศนิยม'"
       },
       {
         id: 6,
@@ -452,6 +503,7 @@ export const lessons = [
           "type()",
         ],
         answer: 1,
+        hint: "การจะนำค่าไปคำนวณได้ ต้องแปลงข้อมูลนั้นให้กลายเป็นตัวเลขจำนวนเต็มก่อน"
       },
       {
         id: 7,
@@ -464,6 +516,7 @@ export const lessons = [
           "Error",
         ],
         answer: 1,
+        hint: "str() คือคำสั่งที่ใช้แปลงข้อมูลให้กลายเป็นข้อความ"
       },
       {
         id: 8,
@@ -476,6 +529,7 @@ export const lessons = [
           "bool(\"3.14\")",
         ],
         answer: 0,
+        hint: "มองหาคำสั่งที่ใช้สร้างหรือแปลงค่าให้เป็น จำนวนจริง,ทศนิยม (Float)"
       },
       {
         id: 9,
@@ -488,6 +542,7 @@ export const lessons = [
           "Error",
         ],
         answer: 2,
+        hint: "int()จะแปลงเลขทศนิยมให้กลายเป็นจำนวนเต็ม โดยตัดเศษทศนิยมทิ้งทั้งหมด"
       },
       {
         id: 10,
@@ -500,13 +555,15 @@ export const lessons = [
           "ใช้ได้เฉพาะกับตัวเลขจำนวนเต็ม",
         ],
         answer: 0,
+        hint: "Python มีความยืดหยุ่นสามารถเปลี่ยนได้ชนิดข้อมูลได้ทั้งหมด"
       }
     ]
   },
   { 
     id: 5, 
-    title: "ตัวดำเนินการทางคณิตศาสตร์", 
-    pdf: "/pdf/maths_python.pdf", 
+    title: "ตัวดำเนินการทางคณิตศาสตร์ (Operators)", 
+    pdf: "/pdf/NSC-operators.pdf",
+    video: "/video/NSC-operators_1.mp4",
     duration: 20, 
     exerciseType: "fill",
     exercises: [
@@ -518,6 +575,7 @@ export const lessons = [
           { type: "text", value: " y)  # หารเอาเศษ" },
         ],
         options: ["%", "//", "**", "/"],
+        hint: "เครื่องหมาย / คือหารได้ทศนิยม และ // คือหารเอาส่วนปัดเศษทิ้ง"
       },
       {
         id: 2,
@@ -527,6 +585,7 @@ export const lessons = [
           { type: "text", value: " 3\nprint(result)  # ยกกำลัง" },
         ],
         options: ["**", "^", "*", "%%"],
+        hint: "การคูณธรรมดาใช้เครื่องหมายดอกจัน (*) เพียงตัวเดียว"
       },
       {
         id: 3,
@@ -536,6 +595,7 @@ export const lessons = [
           { type: "text", value: " b)  # หารแบบปัดเศษทิ้ง" },
         ],
         options: ["//", "%", "/", "**"],
+        hint: "เครื่องหมาย / จะได้ผลลัพธ์เป็นทศนิยม ส่วน % จะได้เศษที่เหลือ"
       },
       {
         id: 4,
@@ -545,6 +605,7 @@ export const lessons = [
           { type: "text", value: " y)  # หาเศษจากการหาร (Modulus)" },
         ],
         options: ["%", "//", "/", "**"],
+        hint: "ต้องการเครื่องหมายสำหรับคำนวณ Modulus "
       },
       {
         id: 5,
@@ -554,6 +615,7 @@ export const lessons = [
           { type: "text", value: " power)  # การยกกำลัง (5 กำลัง 3)" },
         ],
         options: ["**", "*", "%", "//"],
+        hint: "เครื่องหมาย * ตัวเดียวคือการคูณปกติ ไม่ใช่การยกกำลัง"
       },
       {
         id: 6,
@@ -563,6 +625,7 @@ export const lessons = [
           { type: "text", value: " discount  # คำนวณราคาส่วนลด" },
         ],
         options: ["-", "+", "/", "*"],
+        hint: "การคำนวณราคาสินค้าเมื่อมีส่วนลด ต้องนำส่วนลดไป 'หักออก' จากราคาเต็ม"
       },
       {
         id: 7,
@@ -572,6 +635,7 @@ export const lessons = [
           { type: "text", value: " height  # คำนวณพื้นที่สี่เหลี่ยม (กว้าง คูณ สูง)" },
         ],
         options: ["*", "**", "+", "%"],
+        hint: "ในภาษาโปรแกรมห้ามใช้ตัวอักษร x เป็นเครื่องหมายคูณ และ ** เป็นการยกกำลัง"
       },
       {
         id: 8,
@@ -581,6 +645,7 @@ export const lessons = [
           { type: "text", value: " friends  # หารเพื่อให้ได้ผลลัพธ์เป็นทศนิยม (Float)" },
         ],
         options: ["/", "//", "%", "*"],
+        hint: "เครื่องหมาย // จะเป็นการหารแบบปัดเศษทิ้ง ส่วน % คือหารเอาเศษ"
       },
       {
         id: 9,
@@ -590,6 +655,7 @@ export const lessons = [
           { type: "text", value: " bonus  # รวมคะแนนโบนัสเพิ่ม" },
         ],
         options: ["+", "-", "*", "/"],
+        hint: "รวมคะแนนโบนัสเพิ่ม หมายถึงการนำคะแนนเดิมมาบวกเพิ่มด้วยโบนัส"
       },
       {
         id: 10,
@@ -599,13 +665,15 @@ export const lessons = [
           { type: "text", value: " b)  # หารเอาส่วน (ปัดเศษทิ้ง ผลลัพธ์คือ 3)" },
         ],
         options: ["//", "%", "/", "**"],
+        hint: "/ จะได้ 3.333... ส่วน % จะได้เศษเหลือ 2"
       }
     ] 
   },
   { 
     id: 6, 
-    title: "ตัวดำเนินการเปรียบเทียบ", 
-    pdf: "/pdf/python_compare.pdf",
+    title: "ตัวดำเนินการเปรียบเทียบ (Comparison)", 
+    pdf: "/pdf/NSC-comparison.pdf",
+    video: "/video/NSC-comparison_1.mp4",
     duration: 15, 
     exerciseType: "fill",
     exercises: [
@@ -617,6 +685,7 @@ export const lessons = [
           { type: "text", value: " y)  # ตรวจสอบว่าเท่ากันหรือไม่" },
         ],
         options: ["==", "=", "!=", "==="],
+        hint: "เครื่องหมายเท่ากับตัวเดียว (=) คือการกำหนดค่า ไม่ใช่การเปรียบเทียบ"
       },
       {
         id: 2,
@@ -626,6 +695,7 @@ export const lessons = [
           { type: "text", value: " b)  # ตรวจสอบว่าไม่เท่ากัน" },
         ],
         options: ["!=", "==", ">=", "<="],
+        hint: "ในภาษาโปรแกรมสัญลักษณ์เครื่องหมายตกใจ (!) มักถูกใช้แทนความหมายของคำว่า 'ไม่'"
       },
       {
         id: 3,
@@ -635,6 +705,7 @@ export const lessons = [
           { type: "text", value: " 10)  # มากกว่าหรือเท่ากับ" },
         ],
         options: [">=", ">", "<=", "=="],
+        hint: "เงื่อนไข 'มากกว่าหรือเท่ากับ' ต้องครอบคลุมทั้งกรณีที่มากกว่า และกรณีที่เท่ากัน"
       },
       {
         id: 4,
@@ -644,6 +715,7 @@ export const lessons = [
           { type: "text", value: " y)  # ตรวจสอบว่า x เท่ากับ y หรือไม่ (ผลลัพธ์เป็น True)" },
         ],
         options: ["==", "=", "!=", "<="],
+        hint: "เครื่องหมายเท่ากับตัวเดียว (=) หากนำมาเปรียบเทียบเพื่อได้ค่า True/False ต้องใช้แบบอื่น"
       },
       {
         id: 5,
@@ -653,6 +725,7 @@ export const lessons = [
           { type: "text", value: " 18)  # ตรวจสอบว่าอายุมากกว่าหรือเท่ากับ 18 ปีเพื่อเช็กสิทธิ์" },
         ],
         options: [">=", ">", "=>", "=="],
+        hint: "เงื่อนไขบอกว่า 'มากกว่าหรือเท่ากับ 18 ปี' แปลว่าคนอายุ 18 ปีเต็มก็ถือว่าผ่านเงื่อนไขนี้ด้วย"
       },
       {
         id: 6,
@@ -662,6 +735,7 @@ export const lessons = [
           { type: "text", value: " stored_role)  # ตรวจสอบว่าข้อมูลไม่ตรงกัน (ผลลัพธ์เป็น True)" },
         ],
         options: ["!=", "==", "<>", "not"],
+        hint: "เครื่องหมายเปรียบเทียบว่า 'ไม่เท่ากับ' หรือ 'ไม่ตรงกัน'"
       },
       {
         id: 7,
@@ -670,7 +744,8 @@ export const lessons = [
           { type: "blank", id: "b1", answer: "<" },
           { type: "text", value: " 50)  # ตรวจสอบว่าคะแนนน้อยกว่าเกณฑ์ขั้นต่ำ (ผลลัพธ์เป็น True)" },
         ],
-        options: ["<", "<=", ">", "=="],        
+        options: ["<", "<=", ">", "=="],   
+        hint: "เงื่อนไขระบุว่า 'น้อยกว่า' 50 คะแนนชัดเจน"     
       },
       {
         id: 8,
@@ -680,6 +755,7 @@ export const lessons = [
           { type: "text", value: " max_limit)  # ตรวจสอบว่าสินค้าไม่เกินจำนวนที่จำกัด" },
         ],
         options: ["<=", "<", "=<", "!="],
+        hint: "สังเกตเงื่อนไข 'ไม่เกิน' หมายถึง น้อยกว่าก็ผ่าน หรือมีค่าเท่ากับค่าจำกัดสูงสุดก็ผ่าน"
       },
       {
         id: 9,
@@ -689,6 +765,7 @@ export const lessons = [
           { type: "text", value: " 37.5)  # ตรวจสอบว่าอุณหภูมิร่างกายสูงกว่าเกณฑ์ปกติ (เริ่มมีไข้)" },
         ],        
         options: [">", ">=", "<", "=="],
+        hint: "สังเกตโจทย์ระบุอุณหภูมิ 'สูงกว่า' เกณฑ์ 37.5 องศาเซลเซียส"
       },
       {
         id: 10,
@@ -698,13 +775,15 @@ export const lessons = [
           { type: "text", value: " True)  # เปรียบเทียบสถานะเปิดใช้งานกับค่าบูลีน" },
         ],
         options: ["==", "=", "is", "!="],
+        hint: "ต้องการเปรียบเทียบค่าข้อมูลสองฝั่งว่าตรงกันหรือไม่"
       }
     ] 
   },
   { 
     id: 7, 
-    title: "ตัวดำเนินการบูลีน", 
-    pdf: "/pdf/boolean_variable.pdf",
+    title: "ตัวดำเนินการบูลีน (Boolean)", 
+    pdf: "/pdf/NSC-boolean.pdf",
+    video: "/video/NSC-boolean_1.mp4",
     duration: 15, 
     exerciseType: "fill",
     exercises: [
@@ -716,6 +795,7 @@ export const lessons = [
           { type: "text", value: " b)  # ต้องเป็น True ทั้งคู่ ถึงจะได้ True" },
         ],
         options: ["and", "or", "not", "xor"],
+        hint: "ถ้ามี False แม้แต่ตัวเดียว ผลลัพธ์จะกลายเป็น False ทันที"
       },
       {
         id: 2,
@@ -725,6 +805,7 @@ export const lessons = [
           { type: "text", value: " flag)  # กลับค่าความจริง" },
         ],
         options: ["not", "and", "or", "!"],
+        hint: "ต้องการเปลี่ยนค่าจาก True ให้กลายเป็น False"
       },
       {
         id: 3,
@@ -734,6 +815,7 @@ export const lessons = [
           { type: "text", value: " y)  # เติมคำให้จริงแค่ด้านใดด้านหนึ่ง" },
         ],
         options: ["or", "and", "not", "=="],
+        hint: "ลองเช็กค่าก่อน มี True เพียงฝั่งเดียว ก็จะได้ผลลัพธ์เป็น True ทันที"
       },
       {
         id: 4,
@@ -743,6 +825,7 @@ export const lessons = [
           { type: "text", value: "score <= 100) #เติมคำให้ผลลัพธ์เป็น False"}
         ],
         options: ["and", "or", "not", "=="],
+        hint: "ลองเช็กแต่ละฝั่ง"
       },
       {
         id: 5,
@@ -751,7 +834,8 @@ export const lessons = [
           { type: "blank", value: "b1", answer: "and"},
           { type: "text", value: "(num > 0) #เติมคำให้ผลลัพธ์เป็น True"}
         ],
-        options: ["or","and","==","not"]
+        options: ["or","and","==","not"],
+        hint: "การตรวจสอบว่าเลขนี้เป็น ทั้งเลขคู่ และ เป็นจำนวนบวก ต้องใช้ตัวดำเนินการเชื่อมแบบต้องจริงทั้งคู่"
       },
       {
         id: 6,
@@ -760,7 +844,8 @@ export const lessons = [
           { type: "blank", value: "b1", answer: "and"},
           { type: "text", value: "age <= 18) #เติมคำให้ผลลัพธ์เป็น True"}
         ],
-        options: ["and", "or", "not", "=="]
+        options: ["and", "or", "not", "=="],
+        hint: "ค่าอายุตั้งต้นต้องผ่านทั้งสองเงื่อนไขพร้อมกัน"
       },
       {
         id: 7,
@@ -769,7 +854,8 @@ export const lessons = [
           { type: "blank", value: "b1", answer: "or"},
           { type: "text", value: "has_bonus #เติมคำให้ผลลัพธ์เป็น True" }
         ],
-        options: ["or","and","==","not"]
+        options: ["or","and","==","not"],
+        hint: "ถ้าใช้ and ผลลัพธ์จะเป็น False เพราะคะแนนไม่ถึง"
       },
       {
         id: 8,
@@ -778,7 +864,8 @@ export const lessons = [
           { type : "blank", value: "b1", answer: "and"},
           { type : "text", value: "password_correct\n#เติมคำให้ผลลัพธ์เป็น False"}
         ],
-        options: ["and", "or", "!", "=="]
+        options: ["and", "or", "!", "=="],
+        hint: "การเข้าสู่ระบบ (Login) ต้องพิมพ์ถูกทั้ง Username และ Password ถึงจะผ่าน"
       },
       {
         id: 9,
@@ -787,7 +874,8 @@ export const lessons = [
           { type : "blank", value: "b1", answer: "or"},
           { type : "text", value: "age >= 13 and has_permission)\n#เติมคำให้ผลลัพธ์เป็น True"}
         ],
-        options: ["and", "or", "not", "=="]
+        options: ["and", "or", "not", "=="],
+        hint: "ฝั่งซ้าย: `age >= 18` ได้ False (เพราะอายุ 15)"
       },
       {
         id: 10,
@@ -796,14 +884,16 @@ export const lessons = [
           { type : "blank", value: "b1", answer: "or"},
           { type : "text", value: "is_teacher) and has_id #เติมคำให้ผลลัพธ์เป็น True"}
         ],
-        options: ["and", "or", "not", "=="]
+        options: ["and", "or", "not", "=="],
+        hint: "ในวงเล็บต้องการเช็กว่าเป็น 'นักเรียน' หรือว่าเป็น 'ครู' อย่างใดอย่างหนึ่งก็ได้"
       }
     ] 
   },
   { 
     id: 8, 
     title: "การทำงานแบบมีเงื่อนไข (if-else)",
-    pdf: "/pdf/if-else.pdf", 
+    pdf: "/pdf/if_else.pdf", 
+    video: "/video/NSC-if_else.mp4",
     duration: 25, 
     exerciseType: "choice",
     exercises: [
@@ -817,7 +907,8 @@ export const lessons = [
           "elif",
           "if else"
         ],
-        answer: 2
+        answer: 2,
+        hint: "ภาษาโปรแกรมอื่นมักใช้ 'else if' แต่ Python จะนำคำว่า else และ if มารวมกันให้สั้นลง"
       },
       {
         id: 2,
@@ -829,7 +920,8 @@ export const lessons = [
           "เครื่องหมายจุลภาค ( , )",
           "เครื่องหมายจุด ( . )"
         ],
-        answer: 1
+        answer: 1,
+        hint: "สัญลักษณ์นี้เป็นตัวบอกว่าจบบรรทัดสร้างเงื่อนไขแล้ว บรรทัดถัดไปจะเป็นบล็อกคำสั่ง"
       },
       {
         id: 3,
@@ -841,7 +933,8 @@ export const lessons = [
           "การย่อหน้า (Indentation / Tab หรือ Space)",
           "คำสำคัญ end"
         ],
-        answer: 2
+        answer: 2,
+        hint: "Python ไม่เหมือนภาษา C หรือ Java ที่ใช้วงเล็บปีกกา { } ในการแบ่งบล็อกโค้ด"
       },
       {
         id: 4,
@@ -853,7 +946,8 @@ export const lessons = [
           "elif",
           "if else"
         ],
-        answer: 2
+        answer: 2,
+        hint: "ข้อนี้ถามถึงตัวคำสั่งที่ใช้สร้างเงื่อนไขที่ 2, 3, 4 ต่อจาก if"
       },
       {
         id: 5,
@@ -865,7 +959,8 @@ export const lessons = [
           "ทำงานพร้อมกับคำสั่ง if เสมอ",
           "ทำงานเมื่อโปรแกรมเกิดข้อผิดพลาด (Error)"
         ],
-        answer: 0
+        answer: 0,
+        hint: "เปรียบเหมือนทางเลือกสุดท้าย หรือ แผนสำรองเมื่อไม่มีเงื่อนไขใดตรงเลย"
       },
       {
         id: 6,
@@ -877,7 +972,8 @@ export const lessons = [
           "and",
           "&&"
         ],
-        answer: 2       
+        answer: 2,
+        hint: "ต้องผ่านทั้งสองข้อตกลงพร้อมกันถึงจะผ่าน"
       },
       {
         id: 7,
@@ -889,7 +985,8 @@ export const lessons = [
           "not",
           "||"
         ],
-        answer: 1        
+        answer: 1,
+        hint: "แค่มีฝั่งใดฝั่งหนึ่งเป็นจริงก็สามารถทำงานได้"  
       },
       {
         id: 8,
@@ -901,7 +998,8 @@ export const lessons = [
           "or",
           "!"
         ],
-        answer: 0        
+        answer: 0,
+        hint: "คำนี้แปลตรงตัวว่า 'ไม่'"        
       },
       {
         id: 9,
@@ -913,7 +1011,8 @@ export const lessons = [
           "การใส่เครื่องหมายวงเล็บ ( ) ครอบโค้ด",
           "การพิมพ์คำสั่ง end ไว้ท้ายบล็อก"
         ],
-        answer: 1        
+        answer: 1,
+        hint: "โค้ดที่อยู่ลึกเข้าไปข้างใน ถือเป็นส่วนหนึ่งของบล็อกเงื่อนไขนั้นๆ"        
       },
       {
         id: 10,
@@ -925,14 +1024,16 @@ export const lessons = [
           "แสดงคำว่า C",
           "ไม่แสดงผลลัพธ์ใดๆ เลย"
         ],
-        answer: 1        
+        answer: 1,
+        hint: "เช็กเงื่อนไขถัดมา: elif x == 5: เป็นจริง หรือ เท็จ"        
       }
     ] 
   },
   { 
     id: 9, 
-    title: "การทำงานแบบวนซ้ำ (while loop)",
-    pdf: "/pdf/while loop.pdf", 
+    title: "การทำงานแบบวนซ้ำ (While Loop)",
+    pdf: "/pdf/while_loop.pdf",
+    video: "/video/NSC-while_loop.mp4",
     duration: 25, 
     exerciseType: "choice",
     exercises: [
@@ -946,7 +1047,8 @@ export const lessons = [
           "เป็นศูนย์",
           "เกิด Error"
         ],
-        answer: 0
+        answer: 0,
+        hint: "ตราบใดที่เงื่อนไขยังคงถูกต้อง/เป็นจริง ลูปจะทำงานต่อไป"
       },
       {
         id: 2,
@@ -958,7 +1060,8 @@ export const lessons = [
           "exit",
           "break"
         ],
-        answer: 3
+        answer: 3,
+        hint: "คำสั่ง stop หรือ exit ไม่ใช่คำสั่งมาตรฐานสำหรับการออกจากลูปใน Python"
       },
       {
         id: 3,
@@ -970,7 +1073,8 @@ export const lessons = [
           "ใช้คำสั่ง break ไวเกินไป",
           "พิมพ์คำว่า while ผิด"
         ],
-        answer: 1
+        answer: 1,
+        hint: "เงื่อนไขของ while ไม่เคยเปลี่ยนกลายเป็น False แม้แต่ครั้งเดียว"
       },
       {
         id: 4,
@@ -982,7 +1086,8 @@ export const lessons = [
           "เป็นศูนย์ (Zero)",
           "ไม่มีข้อถูก"
         ],
-        answer: 0
+        answer: 0,
+        hint: "หลักการทำงานของ while คือเช็กเงื่อนไขก่อนเริ่มทำเสมอ"
       },
       {
         id: 5,
@@ -994,7 +1099,8 @@ export const lessons = [
           "break",
           "stop"
         ], 
-        answer: 2
+        answer: 2,
+        hint: "คำสั่งนี้ใช้เมื่อเจอเงื่อนไขพิเศษ เช่น หาข้อมูลเจอแล้วจึงต้องการหยุดทำลูปทันที"
       },
       {
         id: 6,
@@ -1006,7 +1112,8 @@ export const lessons = [
           "pass",
           "skip"
         ],
-        answer: 1        
+        answer: 1,
+        hint: "คำสั่งนี้ไม่ได้ออกจากลูปเลยเหมือน break"       
       },
       {
         id: 7,
@@ -1018,7 +1125,8 @@ export const lessons = [
           "ตั้งค่าเริ่มต้นของตัวแปรมากเกินไป",
           "ใช้คำสั่ง print ภายในลูปบ่อยเกินไป"
         ],
-        answer: 1        
+        answer: 1,
+        hint: "ลูปจะค้างเพราะค่าของตัวแปรไม่เคยถูกอัปเดต"        
       },
       {
         id: 8,
@@ -1030,7 +1138,8 @@ export const lessons = [
           "4 รอบ",
           "ทำงานไม่สิ้นสุด (Infinite Loop)"
         ],
-        answer: 1        
+        answer: 1,
+        hint: "x = 4 (4 < 4 เป็น False) หลุดออกจากลูป"       
       },
       {
         id: 9,
@@ -1042,7 +1151,8 @@ export const lessons = [
           "เกิด Infinite Loop พิมพ์เลข 5 ซ้ำๆ ไม่หยุด เพราะ x ไม่เคยลดค่าลง",
           "พิมพ์เลข 5 ออกมาตัวเดียวแล้วจบโปรแกรม"
         ],
-        answer: 2       
+        answer: 2,
+        hint: "ค่า x จะเป็น 5 ตลอด ดังนั้นเงื่อนไข 5 > 0 จึงเป็น True ตลอด"      
       },
       {
         id: 10,
@@ -1054,14 +1164,16 @@ export const lessons = [
           "1, 2, 4, 5",
           "3"
         ],
-        answer: 0        
+        answer: 0,
+        hint: "เมื่อ i = 3  เช็ก if i == 3: ผลลัพธ์กลายเป็น True"        
       }
     ] 
   },
   { 
     id: 10, 
-    title: "การทำงานแบบวนซ้ำ (for loop)",
-    pdf: "/pdf/for loop.pdf", 
+    title: "การทำงานแบบวนซ้ำ (For Loop)",
+    pdf: "/pdf/for_loop.pdf", 
+    video: "/video/for_loop.mp4",
     duration: 25, 
     exerciseType: "choice",
     exercises: [
@@ -1075,7 +1187,8 @@ export const lessons = [
           "loop()",
           "count()"
         ],
-        answer: 1
+        answer: 1,
+        hint: "ฟังก์ชันนี้ทำหน้าที่สร้างชุดตัวเลขลำดับขึ้นมา เพื่อนำให้ for ใช้กำหนดจำนวนรอบ"
       },
       {
         id: 2,
@@ -1087,7 +1200,8 @@ export const lessons = [
           "0, 1, 2, 3, 4",
           "1, 2, 3, 4"
         ],
-        answer: 2
+        answer: 2,
+        hint: "range() หากไม่ได้กำหนดค่าเริ่มต้น จะเริ่มนับจากเลข 0 เสมอ"
       },
       {
         id: 3,
@@ -1099,7 +1213,8 @@ export const lessons = [
           "หยุดการทำงานของโปรแกรมทั้งหมด",
           "ทำซ้ำโค้ดบรรทัดเดิมอีกรอบ"
         ],
-        answer: 1
+        answer: 1,
+        hint: "สังเกตความต่างจาก break"
       },
       {
         id: 4,
@@ -1111,7 +1226,8 @@ export const lessons = [
           "0, 1, 2, 3, 4, 5",
           "1, 3, 5"
         ],
-        answer: 1       
+        answer: 1,
+        hint: "ตัวเลขสุดท้ายในลูปจะไม่รวมเลข 6"       
       },
       {
         id: 5,
@@ -1123,7 +1239,8 @@ export const lessons = [
           "for i in range(1, 11, -1):",
           "for i in range(10, 1, -1):"
         ],
-        answer: 1
+        answer: 1,
+        hint: "ค่า stop ต้องกำหนดให้น้อยกว่าเลขสุดท้ายที่ต้องการ 1 สเต็ป"
       },      
       {
         id: 6,
@@ -1135,7 +1252,8 @@ export const lessons = [
           "while fruits: print(fruits)",
           "for x = 1 to 3 in fruits: print(x)"
         ],
-        answer: 1
+        answer: 1,
+        hint: "ไม่จำเป็นต้องใช้ range() หรือ(Index) หากต้องการหยิบสมาชิกทีละตัวมาใช้งาน"
       },
       {
         id: 7,
@@ -1147,7 +1265,8 @@ export const lessons = [
           "6 บรรทัด",
           "8 บรรทัด"
         ],
-        answer: 0
+        answer: 0,
+        hint: "มีตัวเลขทั้งหมด 3 ค่า (2, 4, 6)"
       },
       {
         id: 8,
@@ -1159,7 +1278,8 @@ export const lessons = [
           "6",
           "10"
         ],
-        answer: 2
+        answer: 2,
+        hint: "range(1, 4) จะสร้างค่า x ออกมาทั้งหมด 3 ค่า คือ 1, 2, 3"
       },
       {
         id: 9,
@@ -1171,7 +1291,8 @@ export const lessons = [
           "เกิดข้อผิดพลาด (Error) เนื่องจากวนลูปบนข้อความไม่ได้",
           "พิมพ์ตัวอักษร T แล้วตามด้วย I"
         ],
-        answer: 1
+        answer: 1,
+        hint: "คำสั่ง print() ปกติจะตัดขึ้นบรรทัดใหม่เสมอ"
       },
       {
         id: 10,
@@ -1183,7 +1304,8 @@ export const lessons = [
           "1 2 4",
           "3"
         ],
-        answer: 2
+        answer: 2,
+        hint: "range(1, 5) สร้างตัวเลข 1, 2, 3, 4"
       },
     ] 
   }
