@@ -169,6 +169,12 @@ input, select, button {
   text-decoration: underline; 
 }
 
+.logo-image {
+  width: 180px;
+  height: auto;
+  display: block;
+  margin: 0 ; 
+}
 
 @media (max-width: 768px) {
   .left-panel {

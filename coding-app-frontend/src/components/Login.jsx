@@ -40,7 +40,11 @@ async function handleLogin(e) {
   return (
     <>
       <div className="login-page">
-        <div className="left-panel"></div>
+        <div className="left-panel">
+          <div className="Logo">
+            <img src="/public/MuanCode Logo.svg" alt="Logo" className="logo-image" /> 
+          </div>
+        </div>
         <div className="right-panel">
           <form className="login-container" onSubmit={handleLogin}>
             <h1>เข้าสู่ระบบ</h1>

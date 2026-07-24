@@ -19,6 +19,12 @@
     rgba(230, 230, 230, 1) 100%
   );
 }
+.logo-image {
+  width: 180px; 
+  height: auto;
+  display: block;
+  margin: 0 ; 
+}
 .right-panel {
   flex: 1;
   display: flex;
