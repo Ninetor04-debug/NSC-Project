@@ -37,7 +37,7 @@ function Register() {
       <div className="register-page">
         <div className="left-panel">
           <div className="Logo">
-            <img src="/public/MuanCode Logo.svg" alt="Logo" className="logo-image" /> 
+            <img src="/MuanCode Logo.svg" alt="Logo" className="logo-image" /> 
           </div>
         </div>
 
